@@ -25,7 +25,7 @@ class DashboardFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+            ViewModelProvider(this)[DashboardViewModel::class.java]
 
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -45,6 +45,7 @@ class DashboardFragment : Fragment() {
             findNavController().navigate(R.id.action_DashboardFragment_to_AddFragment)
         }
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

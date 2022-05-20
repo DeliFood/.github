@@ -5,9 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import ac.id.del.delifood.R
 import ac.id.del.delifood.databinding.FragmentAddBinding
-import androidx.navigation.fragment.findNavController
 
 class AddFragment : Fragment() {
 
@@ -20,19 +18,11 @@ class AddFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentAddBinding.inflate(inflater, container, false)
         return binding.root
     }
 
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding.buttonBack.setOnClickListener {
-            findNavController().navigate(R.id.action_AddFragment_to_DashboardFragment)
-        }
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()

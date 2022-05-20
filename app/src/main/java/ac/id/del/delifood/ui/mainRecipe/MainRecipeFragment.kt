@@ -1,18 +1,17 @@
-package ac.id.del.delifood.ui.notifications
+package ac.id.del.delifood.ui.mainRecipe
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import ac.id.del.delifood.databinding.FragmentNotificationsBinding
+import ac.id.del.delifood.databinding.MainRecipeFragmentBinding
 
-class NotificationsFragment : Fragment() {
+class MainRecipeFragment : Fragment() {
 
-    private var _binding: FragmentNotificationsBinding? = null
-
+    private var _binding: MainRecipeFragmentBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -22,16 +21,17 @@ class NotificationsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val notificationsViewModel =
-            ViewModelProvider(this)[NotificationsViewModel::class.java]
+        val mainRecipeViewModel =
+            ViewModelProvider(this)[MainRecipeViewModel::class.java]
 
-        _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
+        _binding = MainRecipeFragmentBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
-        notificationsViewModel.text.observe(viewLifecycleOwner) {
+        val textView: TextView = binding.textMainRecipe
+        mainRecipeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+
         return root
     }
 

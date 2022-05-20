@@ -1,14 +1,15 @@
-package ac.id.del.delifood.ui.dashboard
+package ac.id.del.delifood.ui.mainRecipe
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
+class MainRecipeViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+        value = "This is Main Recipe Fragment"
     }
+
     val text: LiveData<String> = _text
 
 }
