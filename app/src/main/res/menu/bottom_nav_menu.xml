@@ -8,12 +8,12 @@
         tools:ignore="MenuTitle" />
 
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_my_recipe"
         android:icon="@drawable/ic_baseline_add_circle_24"
         tools:ignore="MenuTitle" />
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_my_account"
         android:icon="@drawable/ic_baseline_person_24"
         tools:ignore="MenuTitle" />
 

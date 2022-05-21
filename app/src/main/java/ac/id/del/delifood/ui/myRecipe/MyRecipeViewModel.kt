@@ -1,13 +1,14 @@
-package ac.id.del.delifood.ui.notifications
+package ac.id.del.delifood.ui.myRecipe
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class NotificationsViewModel : ViewModel() {
+class MyRecipeViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is notifications Fragment"
+        value = "This is My Recipe Fragment"
     }
     val text: LiveData<String> = _text
+
 }

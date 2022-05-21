@@ -2,10 +2,12 @@
 buildscript {
     repositories {
         google()  // Google's Maven repository
+        mavenCentral()
     }
 
     dependencies {
         classpath 'com.google.gms:google-services:4.3.10'
+
     }
 }
 
@@ -17,7 +19,8 @@ plugins {
 
 allprojects {
     repositories {
-        google()  // Google's Maven repository
+        google()  // Google's Maven repositoryjcenter()
+        maven { url 'https://maven.google.com'}
     }
 }
 
