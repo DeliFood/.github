@@ -8,4 +8,6 @@
     <color name="background_main">#1A1A1A</color>
     <color name="buttom_nav_click">#1E90FF</color>
     <color name="color_text">#C1C1C1</color>
+    <color name="primaryColor">#1E90FF</color>
+    <color name="secondaryColor">#C1C1C1</color>
 </resources>
