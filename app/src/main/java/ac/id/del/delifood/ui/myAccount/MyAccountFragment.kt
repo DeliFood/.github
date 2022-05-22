@@ -1,4 +1,4 @@
-package ac.id.del.delifood.ui.notifications
+package ac.id.del.delifood.ui.myAccount
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import ac.id.del.delifood.databinding.FragmentNotificationsBinding
+import ac.id.del.delifood.databinding.FragmentMyAccountBinding
 
-class NotificationsFragment : Fragment() {
+class MyAccountFragment : Fragment() {
 
-    private var _binding: FragmentNotificationsBinding? = null
+    private var _binding: FragmentMyAccountBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -23,12 +23,12 @@ class NotificationsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val notificationsViewModel =
-            ViewModelProvider(this).get(NotificationsViewModel::class.java)
+            ViewModelProvider(this)[MyAccountViewModel::class.java]
 
-        _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
+        _binding = FragmentMyAccountBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
+        val textView: TextView = binding.textMyAccount
         notificationsViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }

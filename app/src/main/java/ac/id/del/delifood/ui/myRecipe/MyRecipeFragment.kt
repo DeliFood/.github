@@ -1,4 +1,4 @@
-package ac.id.del.delifood.ui.dashboard
+package ac.id.del.delifood.ui.myRecipe
 
 import ac.id.del.delifood.R
 import android.os.Bundle
@@ -8,12 +8,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import ac.id.del.delifood.databinding.FragmentDashboardBinding
+import ac.id.del.delifood.databinding.FragmentMyRecipeBinding
 import androidx.navigation.fragment.findNavController
 
-class DashboardFragment : Fragment() {
+class MyRecipeFragment : Fragment() {
 
-    private var _binding: FragmentDashboardBinding? = null
+    private var _binding: FragmentMyRecipeBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,14 +24,14 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+        val myRecipeViewModel =
+            ViewModelProvider(this)[MyRecipeViewModel::class.java]
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentMyRecipeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
+        val textView: TextView = binding.textMyRecipe
+        myRecipeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
 
@@ -42,9 +42,10 @@ class DashboardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonAdd.setOnClickListener {
-            findNavController().navigate(R.id.action_DashboardFragment_to_AddFragment)
+            findNavController().navigate(R.id.action_MyRecipeFragment_to_AddRecipeFragment)
         }
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

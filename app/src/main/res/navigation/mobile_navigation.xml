@@ -2,41 +2,55 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_home" >
 
     <fragment
         android:id="@+id/navigation_home"
         android:name="ac.id.del.delifood.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
-
-    <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="ac.id.del.delifood.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard">
+        tools:layout="@layout/fragment_home" >
 
         <action
-            android:id="@+id/action_DashboardFragment_to_AddFragment"
-            app:destination="@id/navigation_add" />
+            android:id="@+id/action_HomeFragment_to_MainRecipeFragment"
+            app:destination="@id/navigation_main_recipe" />
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="ac.id.del.delifood.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_main_recipe"
+        android:name="ac.id.del.delifood.ui.mainRecipe.MainRecipeFragment"
+        android:label="@string/title_main_recipe"
+        tools:layout="@layout/fragment_main_recipe" >
+        <action
+            android:id="@+id/action_MainRecipeFragment_to_HomeFragment"
+            app:destination="@id/navigation_home" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_add"
-        android:name="ac.id.del.delifood.ui.addRecipe.AddFragment"
-        android:label="@string/add_fragment_label"
-        tools:layout="@layout/fragment_add" >
+        android:id="@+id/navigation_my_recipe"
+        android:name="ac.id.del.delifood.ui.myRecipe.MyRecipeFragment"
+        android:label="@string/title_my_recipe"
+        tools:layout="@layout/fragment_my_recipe">
 
         <action
-            android:id="@+id/action_AddFragment_to_DashboardFragment"
-            app:destination="@id/navigation_dashboard" />
+            android:id="@+id/action_MyRecipeFragment_to_AddRecipeFragment"
+            app:destination="@id/navigation_add_recipe" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_my_account"
+        android:name="ac.id.del.delifood.ui.myAccount.MyAccountFragment"
+        android:label="@string/title_my_account"
+        tools:layout="@layout/fragment_my_account" />
+
+    <fragment
+        android:id="@+id/navigation_add_recipe"
+        android:name="ac.id.del.delifood.ui.addRecipe.AddRecipeFragment"
+        android:label="@string/title_add_recipe"
+        tools:layout="@layout/fragment_add_recipe" >
+
+        <action
+            android:id="@+id/action_AddRecipeFragment_to_MyRecipeFragment"
+            app:destination="@id/navigation_my_recipe" />
     </fragment>
 
 </navigation>
