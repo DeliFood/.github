@@ -1,4 +1,4 @@
-# DeliFood merupakan aplikasi yang menyediakan resep dan sejarah makanan yang berasal dari setiap daerah di Nusantara dan juga Luar Negeri
+# DeliFood merupakan aplikasi bersbasis mobile yang memberikan informasi terkait jenis - jenis makanan berdasarkan masing - masing daerah yang ada di Kawasan Nusantara. Aplikasi DeliFood juga menyediakan bahan - bahan dan juga cara / langkah - langkah membuat makanan tersebut.
 
 
 
