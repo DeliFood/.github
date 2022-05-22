@@ -15,4 +15,22 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="background_page">
+        <item name="android:background">@color/background_main</item>
+    </style>
+
+    <style name="main_recipe_title">
+        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/color_text</item>
+    </style>
+
+    <style name="main_recipe_text">
+        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
 </resources>

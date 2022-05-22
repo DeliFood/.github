@@ -23,32 +23,23 @@
             tools:layout_editor_absoluteY="0dp" />
 
         <TextView
+            style="@style/main_recipe_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/title_recipe"
-            android:textColor="@color/color_text"
-            android:fontFamily="sans-serif-thin"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textAlignment="viewStart" />
+            android:textColor="#A1887F" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/history_recipe"
-            android:textColor="@color/white"
-            android:fontFamily="sans-serif-thin"
-            android:textSize="11sp"
-            android:textAlignment="viewStart" />
+            style="@style/main_recipe_text" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/desc_recipe"
-            android:textColor="@color/white"
-            android:fontFamily="sans-serif-thin"
-            android:textSize="11sp"
-            android:textAlignment="viewStart" />
+            style="@style/main_recipe_text" />
 
     </LinearLayout>
 
