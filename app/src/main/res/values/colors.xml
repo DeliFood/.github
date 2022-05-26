@@ -10,4 +10,5 @@
     <color name="color_text">#C1C1C1</color>
     <color name="primaryColor">#1E90FF</color>
     <color name="secondaryColor">#C1C1C1</color>
+    <color name="background_card">#333333</color>
 </resources>

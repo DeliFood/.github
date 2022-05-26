@@ -7,11 +7,17 @@
     <string name="title_add_recipe">Add Recipe</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="img_default_recipe_desc">Image default recipe description</string>
-    <string name="title_recipe">Judul</string>
-    <string name="history_recipe">History</string>
+    <string name="title">Judul</string>
+    <string name="origin_main_recipe">Asal Daerah: </string>
+    <string name="ingredients_main_recipe">Bahan: </string>
+    <string name="procedure_main_recipe">Cara Memasak: </string>
+    <string name="blank">blank</string>
     <string name="desc_recipe">Recipe</string>
     <string name="img_landing_page">Image Landing Page</string>
-    <string name="sub_title_landing_page">DeliFood merupakan aplikasi bebasis mobile yang menerapkan sistem CRUD. Dimana aplikasi ini berisikan informasi terkait jenis - jenis makanan yang ada di Nusantara, termasuk bahan - bahan serta cara membuatnya. DeliFood menyediakan fitur Resep Saya, dimana pengguna dapat menambahkan jenis makanan dari asal daerahnya. </string>
+    <string name="search">Cari</string>
+    <string name="title_home_category">Kategori</string>
+
+
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>

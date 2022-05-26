@@ -9,7 +9,10 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import ac.id.del.delifood.databinding.FragmentHomeBinding
+import android.widget.LinearLayout
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class HomeFragment : Fragment() {
 
@@ -34,6 +37,16 @@ class HomeFragment : Fragment() {
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+
+        val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(context)
+        val categoryView: RecyclerView = binding.categoryHome
+        categoryView.layoutManager = layoutManager
+        categoryView.setHasFixedSize(true)
+
+        homeViewModel.categoryHome.observe(viewLifecycleOwner) {
+            categoryView.adapter = it
+        }
+
         return root
     }
 
