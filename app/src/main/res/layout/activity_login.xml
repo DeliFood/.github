@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:text="@string/app_name"
         android:layout_marginTop="20dp"
-        android:textSize="40sp"
+        android:textSize="32sp"
         android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@+id/icon_person_login"
         app:layout_constraintStart_toStartOf="parent"

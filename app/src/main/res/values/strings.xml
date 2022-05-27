@@ -17,8 +17,20 @@
     <string name="img_landing_page">Image Landing Page</string>
     <string name="search">Cari</string>
     <string name="title_home_category">Kategori</string>
-    <string name="username">Nama Pengguna</string>
+    <string name="username">Username</string>
+    <string name="firstname">Nama Depan</string>
+    <string name="lastname">Nama Belakang</string>
+    <string name="email_id"> Email ID</string>
     <string name="password">Kata Sandi</string>
+    <string name="confirm_password">Masukkan Ulang Kata Sandi</string>
+
+    <string name="err_msg_enter_first_name">Tolong masukkan nama depan </string>
+    <string name="err_msg_enter_last_name">Tolong masukkan nama belakang</string>
+    <string name="err_msg_enter_email">Tolong masukkan email</string>
+    <string name="err_msg_enter_password">Tolong masukkan kata sandi</string>
+    <string name="err_msg_enter_confirm_password">Tolong masukkan konfirmasi kata sandi</string>
+    <string name="err_msg_password_and_confirm_password_mismatch">Kata sandi dan konfirmasi kata sandi tidak cocok</string>
+    <string name="registery_successfull">Terima kasih sudah mendaftar!</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -31,4 +43,5 @@
     <string name="register">Daftar</string>
     <string name="login">Masuk</string>
     <string name="q_register">Belum ada akun?</string>
+    <string name="q_login">Sudah ada akun?</string>
 </resources>
