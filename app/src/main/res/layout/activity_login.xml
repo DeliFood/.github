@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
+    <ac.id.del.delifood.utils.InterTextViewBold
         android:id="@+id/app_name_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,7 +25,6 @@
         android:layout_marginTop="20dp"
         android:textSize="40sp"
         android:textAlignment="center"
-        android:fontFamily="@font/poppinsbold"
         app:layout_constraintTop_toBottomOf="@+id/icon_person_login"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -43,14 +42,11 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="25dp"
-            android:background="@color/primaryColor">
+            app:cardCornerRadius="25dp" >
 
-            <EditText
+            <ac.id.del.delifood.utils.InterEditText
                 android:layout_width="match_parent"
                 android:layout_height="57dp"
-                android:backgroundTint="@color/secondaryColor"
-                android:fontFamily="@font/poppinsregular"
                 android:hint="@string/username"
                 android:paddingHorizontal="20dp"
                 android:textColorHint="#757575"
@@ -62,14 +58,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="20dp"
-            android:background="@color/primaryColor"
             app:cardCornerRadius="25dp" >
 
-            <EditText
+            <ac.id.del.delifood.utils.InterEditText
                 android:layout_width="match_parent"
                 android:layout_height="57dp"
-                android:backgroundTint="@color/secondaryColor"
-                android:fontFamily="@font/poppinsregular"
                 android:hint="@string/password"
                 android:paddingHorizontal="20dp"
                 android:textColorHint="#757575"
@@ -80,9 +73,9 @@
 
     </LinearLayout>
 
-    <Button
+    <ac.id.del.delifood.utils.InterButton
         android:id="@+id/button_login"
-        style="@style/btn_landing_page"
+        style="@style/btn_default"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login"
@@ -102,20 +95,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_login" >
 
-        <TextView
+        <ac.id.del.delifood.utils.InterTextViewRegular
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/q_daftar"
-            android:fontFamily="@font/poppinsregular"
+            android:text="@string/q_register"
             android:textSize="13sp"/>
 
-        <TextView
-            android:id="@+id/txt_daftar"
+        <ac.id.del.delifood.utils.InterTextViewBold
+            android:id="@+id/txt_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/register"
-            android:textColor="@color/primaryColor"
-            android:fontFamily="@font/poppinssemibold"
             android:textSize="13sp" />
     </LinearLayout>
 

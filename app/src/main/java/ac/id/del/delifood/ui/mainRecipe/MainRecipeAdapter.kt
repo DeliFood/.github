@@ -23,7 +23,6 @@ class MainRecipeAdapter (private  val mainRecipeList: List<MainRecipe>) : Recycl
     }
 
 
-    class MainRecipeViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView){
-    }
+    class MainRecipeViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView)
 
 }

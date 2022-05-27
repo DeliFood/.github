@@ -9,12 +9,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 
 class ListCategoryFragment : Fragment() {
     private var _binding: FragmentListCategoryBinding? = null
@@ -25,9 +22,6 @@ class ListCategoryFragment : Fragment() {
     private var _binding1: ItemListCategoryBinding? = null
 
     private val binding1 get() = _binding1!!
-
-    private lateinit var databaseReference: DatabaseReference
-    private lateinit var dbRef: DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,14 +34,6 @@ class ListCategoryFragment : Fragment() {
         _binding = FragmentListCategoryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        databaseReference = FirebaseDatabase.getInstance().reference
-        dbRef = databaseReference.child("main_recipe")
-
-        val textView: TextView = binding.textListCategory
-        listCategoryViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(context)
         val categoryView: RecyclerView = binding.listCategory
         categoryView.layoutManager = layoutManager
@@ -56,7 +42,6 @@ class ListCategoryFragment : Fragment() {
         listCategoryViewModel.listCategory.observe(viewLifecycleOwner) {
             categoryView.adapter = it
         }
-
 
         return root
     }

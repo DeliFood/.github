@@ -3,14 +3,12 @@ package ac.id.del.delifood.activities
 import ac.id.del.delifood.R
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.Typeface
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.WindowInsets
 import android.view.WindowManager.LayoutParams.*
-import android.widget.TextView
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {

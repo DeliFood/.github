@@ -1,3 +1,4 @@
+//file:noinspection DifferentStdlibGradleVersion
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
@@ -74,6 +75,7 @@ dependencies {
 
     // Kotlin components
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
+    //noinspection DifferentStdlibGradleVersion
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.21'
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2'
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'

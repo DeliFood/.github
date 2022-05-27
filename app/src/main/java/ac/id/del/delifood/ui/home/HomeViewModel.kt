@@ -14,12 +14,7 @@ class HomeViewModel : ViewModel() {
     private val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().reference
     private val dbRef: DatabaseReference = databaseReference.child("main_category")
 
-    private val mainCategoryList: ArrayList<MainCategory> = arrayListOf<MainCategory>()
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is Home Fragment"
-    }
-    val text: LiveData<String> = _text
+    private val mainCategoryList: ArrayList<MainCategory> = arrayListOf()
 
     private val _categoryHome = MutableLiveData<RecyclerView.Adapter<HomeAdapter.HomeViewHolder>>().apply {
         dbRef.addValueEventListener(object : ValueEventListener {

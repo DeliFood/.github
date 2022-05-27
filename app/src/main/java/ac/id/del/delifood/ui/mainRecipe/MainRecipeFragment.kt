@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class MainRecipeFragment : Fragment() {
 
@@ -17,9 +17,6 @@ class MainRecipeFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-
-    private lateinit var databaseReference: DatabaseReference
-    private lateinit var dbRef: DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,13 +29,6 @@ class MainRecipeFragment : Fragment() {
         _binding = FragmentMainRecipeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        databaseReference = FirebaseDatabase.getInstance().reference
-        dbRef = databaseReference.child("main_recipe")
-
-        val textView: TextView = binding.textMainRecipe
-        mainRecipeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
         val textTitle: TextView = binding.titleMainRecipe
         mainRecipeViewModel.textTitle.observe(viewLifecycleOwner) {
             textTitle.text = it
@@ -55,7 +45,17 @@ class MainRecipeFragment : Fragment() {
 //        mainRecipeViewModel.textProcedure.observe(viewLifecycleOwner) {
 //            textProcedure.text = it
 //        }
-            return root
+
+        val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(context)
+        val categoryView: RecyclerView = binding.ingredientsListMainRecipe
+        categoryView.layoutManager = layoutManager
+        categoryView.setHasFixedSize(true)
+
+        mainRecipeViewModel.listText.observe(viewLifecycleOwner) {
+            categoryView.adapter = it
+        }
+
+        return root
     }
 
     override fun onDestroyView() {

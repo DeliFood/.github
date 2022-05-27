@@ -16,12 +16,6 @@ class ListCategoryViewModel : ViewModel() {
 
     private val mainCategoryList: ArrayList<MainCategory> = arrayListOf()
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is List Category Fragment"
-    }
-
-    val text: LiveData<String> = _text
-
     private val _listCategory = MutableLiveData<RecyclerView.Adapter<MainCategoryAdapter.MainCategoryViewHolder>>().apply {
         dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {

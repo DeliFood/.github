@@ -12,15 +12,6 @@ class MainRecipeViewModel : ViewModel() {
     private val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().reference
     private val dbRef: DatabaseReference = databaseReference.child("main_recipe").child("1")
 
-    private val mainRecipeList: ArrayList<MainRecipe> = arrayListOf()
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is Main Recipe Fragment"
-    }
-
-    val text: LiveData<String> = _text
-
-
     private val _textTitle = MutableLiveData<String>().apply {
         dbRef.child("title_recipe").get()
             .addOnSuccessListener {
@@ -72,18 +63,41 @@ class MainRecipeViewModel : ViewModel() {
 //
 //    val textProcedure: LiveData<String> = _textProcedure
 
-    private val _ingredientsListMainRecipe = MutableLiveData<RecyclerView.Adapter<MainRecipeAdapter.MainRecipeViewHolder>>().apply {
+//    private val _ingredientsListMainRecipe = MutableLiveData<RecyclerView.Adapter<MainRecipeAdapter.MainRecipeViewHolder>>().apply {
+//        dbRef.addValueEventListener(object : ValueEventListener {
+//            override fun onDataChange(dataSnapshot: DataSnapshot) {
+//                for (mainRecipeSnapshot in dataSnapshot.children) {
+//                    val mainRecipe = mainRecipeSnapshot.getValue(MainRecipe::class.java)
+//                    mainRecipeList.add(mainRecipe!!)
+//                    value = MainRecipeAdapter(mainRecipeList)
+//                }
+//
+//
+//            }
+//
+//            override fun onCancelled(databaseError: DatabaseError) {
+//                // Getting Post failed, log a message
+//                Log.w(ContentValues.TAG, "loadPost:onCancelled", databaseError.toException())
+//            }
+//        }
+//        )
+//    }
+
+//    val ingredientsListMainRecipe: LiveData<RecyclerView.Adapter<MainRecipeAdapter.MainRecipeViewHolder>> = _ingredientsListMainRecipe
+
+    private val mainRecipeList: ArrayList<MainRecipe> = arrayListOf()
+
+    private val _listText = MutableLiveData<RecyclerView.Adapter<MainRecipeAdapter.MainRecipeViewHolder>>().apply {
         dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (mainRecipeSnapshot in dataSnapshot.children) {
-                    val mainRecipe = mainRecipeSnapshot.getValue(MainRecipe::class.java)
+                    val mainRecipe =  mainRecipeSnapshot.getValue(MainRecipe::class.java)
                     mainRecipeList.add(mainRecipe!!)
                     value = MainRecipeAdapter(mainRecipeList)
                 }
 
 
             }
-
             override fun onCancelled(databaseError: DatabaseError) {
                 // Getting Post failed, log a message
                 Log.w(ContentValues.TAG, "loadPost:onCancelled", databaseError.toException())
@@ -92,6 +106,6 @@ class MainRecipeViewModel : ViewModel() {
         )
     }
 
-    val ingredientsListMainRecipe: LiveData<RecyclerView.Adapter<MainRecipeAdapter.MainRecipeViewHolder>> = _ingredientsListMainRecipe
+    val listText: LiveData<RecyclerView.Adapter<MainRecipeAdapter.MainRecipeViewHolder>> = _listText
 
 }
