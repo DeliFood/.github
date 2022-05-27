@@ -1,5 +1,6 @@
-package ac.id.del.delifood
+package ac.id.del.delifood.activities
 
+import ac.id.del.delifood.R
 import ac.id.del.delifood.databinding.ActivityMainBinding
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +10,6 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.database.FirebaseDatabase
 
 
 class MainActivity : AppCompatActivity() {

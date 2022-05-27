@@ -4,6 +4,7 @@
     <string name="title_my_recipe">My Recipe</string>
     <string name="title_my_account">My Account</string>
     <string name="title_main_recipe">Recipe</string>
+    <string name="title_list_category">Category</string>
     <string name="title_add_recipe">Add Recipe</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="img_default_recipe_desc">Image default recipe description</string>
@@ -16,8 +17,8 @@
     <string name="img_landing_page">Image Landing Page</string>
     <string name="search">Cari</string>
     <string name="title_home_category">Kategori</string>
-
-
+    <string name="username">Nama Pengguna</string>
+    <string name="password">Kata Sandi</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -29,4 +30,5 @@
     <string name="login_failed">"Login failed"</string>
     <string name="register">Daftar</string>
     <string name="login">Masuk</string>
+    <string name="q_daftar">Belum ada akun?</string>
 </resources>

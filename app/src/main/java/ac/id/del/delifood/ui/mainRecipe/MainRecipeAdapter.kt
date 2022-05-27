@@ -1,11 +1,10 @@
-package ac.id.del.delifood.ui.home
+package ac.id.del.delifood.ui.mainRecipe
 
 import ac.id.del.delifood.R
 import ac.id.del.delifood.data.MainRecipe
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class MainRecipeAdapter (private  val mainRecipeList: List<MainRecipe>) : RecyclerView.Adapter<MainRecipeAdapter.MainRecipeViewHolder>(){
@@ -16,8 +15,7 @@ class MainRecipeAdapter (private  val mainRecipeList: List<MainRecipe>) : Recycl
     }
 
     override fun onBindViewHolder(holder: MainRecipeViewHolder, position: Int) {
-        val currentItem = mainRecipeList[position]
-        holder.categoryHome.text = currentItem.origin
+//        val currentItem = mainRecipeList[position]
     }
 
     override fun getItemCount(): Int {
@@ -26,7 +24,6 @@ class MainRecipeAdapter (private  val mainRecipeList: List<MainRecipe>) : Recycl
 
 
     class MainRecipeViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView){
-        val categoryHome: TextView = itemView.findViewById(R.id.text_category_home)
     }
 
 }

@@ -68,7 +68,7 @@
                 style="@style/main_recipe_text" />
 
             <TextView
-                android:id="@+id/ingredients_main_recipe"
+                android:id="@+id/ingredients_list_main_recipe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/blank"
@@ -90,7 +90,7 @@
                 style="@style/main_recipe_text" />
 
             <TextView
-                android:id="@+id/procedure_main_recipe"
+                android:id="@+id/procedure_list_main_recipe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/blank"
