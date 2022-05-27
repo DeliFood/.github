@@ -1,6 +1,5 @@
 package ac.id.del.delifood.ui.mainRecipe
 
-import ac.id.del.delifood.data.MainRecipe
 import ac.id.del.delifood.databinding.FragmentMainRecipeBinding
 import android.os.Bundle
 import android.view.LayoutInflater
