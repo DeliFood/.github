@@ -14,14 +14,14 @@ class HomeViewModel : ViewModel() {
     private val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().reference
     private val dbRef: DatabaseReference = databaseReference.child("main_recipe")
 
-    val mainRecipeList: ArrayList<MainRecipe> = arrayListOf<MainRecipe>()
+    val mainRecipeList: ArrayList<MainRecipe> = arrayListOf()
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is Home Fragment"
     }
     val text: LiveData<String> = _text
 
-    private val _category_home = MutableLiveData<RecyclerView.Adapter<MainRecipeAdapter.MainRecipeViewHolder>>().apply {
+    private val _categoryHome = MutableLiveData<RecyclerView.Adapter<MainRecipeAdapter.MainRecipeViewHolder>>().apply {
         dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (mainRecipeSnapshot in dataSnapshot.children) {
@@ -40,6 +40,6 @@ class HomeViewModel : ViewModel() {
         )
     }
 
-    val categoryHome: LiveData<RecyclerView.Adapter<MainRecipeAdapter.MainRecipeViewHolder>> = _category_home
+    val categoryHome: LiveData<RecyclerView.Adapter<MainRecipeAdapter.MainRecipeViewHolder>> = _categoryHome
 
 }
