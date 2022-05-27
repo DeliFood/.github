@@ -1,14 +1,14 @@
 package ac.id.del.delifood.ui.mainRecipe
 
 import ac.id.del.delifood.data.MainRecipe
+import ac.id.del.delifood.databinding.FragmentMainRecipeBinding
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import ac.id.del.delifood.databinding.FragmentMainRecipeBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -21,7 +21,6 @@ class MainRecipeFragment : Fragment() {
 
     private lateinit var databaseReference: DatabaseReference
     private lateinit var dbRef: DatabaseReference
-    private lateinit var id: String
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,20 +35,6 @@ class MainRecipeFragment : Fragment() {
 
         databaseReference = FirebaseDatabase.getInstance().reference
         dbRef = databaseReference.child("main_recipe")
-
-        id = "1"
-        dbRef = dbRef.child(id)
-
-        writeData(
-            "Kerak Telor",
-            "Betawi",
-            arrayListOf(
-                "ingredients1",
-                "ingredients1"),
-            arrayListOf(
-                "procedure1",
-                "procedure1")
-            )
 
         val textView: TextView = binding.textMainRecipe
         mainRecipeViewModel.text.observe(viewLifecycleOwner) {
@@ -71,8 +56,7 @@ class MainRecipeFragment : Fragment() {
 //        mainRecipeViewModel.textProcedure.observe(viewLifecycleOwner) {
 //            textProcedure.text = it
 //        }
-
-        return root
+            return root
     }
 
     override fun onDestroyView() {
@@ -80,8 +64,4 @@ class MainRecipeFragment : Fragment() {
         _binding = null
     }
 
-    private fun writeData(title: String, origin: String, ingredients: ArrayList<String>, procedure: ArrayList<String>) {
-        val mainRecipe = MainRecipe(title, origin, ingredients, procedure)
-        dbRef.setValue(mainRecipe)
-    }
 }

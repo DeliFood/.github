@@ -1,5 +1,6 @@
 package ac.id.del.delifood.ui.mainRecipe
 
+import ac.id.del.delifood.data.MainRecipe
 import android.util.Log
 import androidx.lifecycle.*
 import com.google.firebase.database.DatabaseReference
