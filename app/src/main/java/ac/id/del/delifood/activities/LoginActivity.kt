@@ -7,8 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
-import android.widget.TextView
-import android.widget.Toolbar
+import ac.id.del.delifood.utils.InterTextViewBold
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
             )
         }
 
-        val textRegister: TextView = findViewById(R.id.txt_register)
+        val textRegister: InterTextViewBold = findViewById(R.id.txt_register)
         textRegister.setOnClickListener {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             startActivity(intent)

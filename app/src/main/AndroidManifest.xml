@@ -13,11 +13,11 @@
             android:exported="false" />
         <activity
             android:name=".activities.RegisterActivity"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activities.LoginActivity"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activities.SplashActivity"
@@ -25,7 +25,6 @@
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

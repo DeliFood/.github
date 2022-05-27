@@ -8,7 +8,8 @@ import android.text.TextUtils
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Button
-import android.widget.TextView
+import ac.id.del.delifood.utils.InterTextViewBold
+import ac.id.del.delifood.utils.InterEditText
 import androidx.appcompat.widget.Toolbar
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
@@ -17,11 +18,11 @@ import com.google.firebase.auth.FirebaseUser
 
 class RegisterActivity : BaseActivity() {
 
-    private val etFirstName: TextView = findViewById(R.id.et_first_name)
-    private val etLastName: TextView = findViewById(R.id.et_last_name)
-    private val etEmail: TextView = findViewById(R.id.et_email)
-    private val etPassword: TextView = findViewById(R.id.et_password)
-    private val etConfirmPassword: TextView = findViewById(R.id.et_confirm_password)
+    private val etFirstName: InterEditText = findViewById(R.id.et_first_name)
+    private val etLastName: InterEditText = findViewById(R.id.et_last_name)
+    private val etEmail: InterEditText = findViewById(R.id.et_email)
+    private val etPassword: InterEditText = findViewById(R.id.et_password)
+    private val etConfirmPassword: InterEditText = findViewById(R.id.et_confirm_password)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +40,7 @@ class RegisterActivity : BaseActivity() {
 
         setupActionBar()
 
-        val textLogin: TextView = findViewById(R.id.txt_login)
+        val textLogin: InterTextViewBold = findViewById(R.id.txt_login)
         textLogin.setOnClickListener {
             val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
             startActivity(intent)
