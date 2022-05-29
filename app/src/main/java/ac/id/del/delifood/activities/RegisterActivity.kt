@@ -7,9 +7,9 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.WindowInsets
 import android.view.WindowManager
-import android.widget.Button
 import ac.id.del.delifood.utils.InterTextViewBold
 import ac.id.del.delifood.utils.InterEditText
+import ac.id.del.delifood.utils.InterButton
 import androidx.appcompat.widget.Toolbar
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
@@ -17,13 +17,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 class RegisterActivity : BaseActivity() {
-
-    private val etFirstName: InterEditText = findViewById(R.id.et_first_name)
-    private val etLastName: InterEditText = findViewById(R.id.et_last_name)
-    private val etEmail: InterEditText = findViewById(R.id.et_email)
-    private val etPassword: InterEditText = findViewById(R.id.et_password)
-    private val etConfirmPassword: InterEditText = findViewById(R.id.et_confirm_password)
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -46,12 +39,11 @@ class RegisterActivity : BaseActivity() {
             startActivity(intent)
         }
 
-        val buttonRegister = findViewById<Button>(R.id.button_register)
+        val buttonRegister: InterButton = findViewById(R.id.button_register)
         buttonRegister.setOnClickListener {
             registerUser()
         }
     }
-
 
     private fun setupActionBar() {
         val toolbarRegisterActivity: Toolbar = findViewById(R.id.toolbar_register_activity)
@@ -71,6 +63,13 @@ class RegisterActivity : BaseActivity() {
      * A function to validate the entries of a new user
      */
     private fun validateRegisterDetails(): Boolean {
+
+        val etFirstName: InterEditText = findViewById(R.id.et_first_name)
+        val etLastName: InterEditText = findViewById(R.id.et_last_name)
+        val etEmail: InterEditText = findViewById(R.id.et_email)
+        val etPassword: InterEditText = findViewById(R.id.et_password)
+        val etConfirmPassword: InterEditText = findViewById(R.id.et_confirm_password)
+
         return when {
             TextUtils.isEmpty(etFirstName.text.toString().trim { it <= ' '}) -> {
                 showErrorSnackBar(resources.getString(R.string.err_msg_enter_first_name), true)
@@ -105,6 +104,9 @@ class RegisterActivity : BaseActivity() {
     }
 
     private fun registerUser() {
+        val etEmail: InterEditText = findViewById(R.id.et_email)
+        val etPassword: InterEditText = findViewById(R.id.et_password)
+
         if(validateRegisterDetails()) {
             val email: String = etEmail.text.toString().trim {  it <= ' ' }
             val password: String = etPassword.text.toString().trim {  it <= ' ' }
