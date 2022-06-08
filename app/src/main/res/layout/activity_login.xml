@@ -48,7 +48,7 @@
             <ac.id.del.delifood.utils.InterEditText
                 android:layout_width="match_parent"
                 android:layout_height="57dp"
-                android:hint="@string/username"
+                android:hint="@string/email_id"
                 android:paddingHorizontal="20dp"
                 android:textColorHint="#757575"
                 android:autofillHints=""
@@ -71,7 +71,12 @@
                 android:inputType="" />
         </androidx.cardview.widget.CardView>
 
-
+        <ac.id.del.delifood.utils.InterTextViewRegular
+            android:id="@+id/forgot_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/forgot_password"
+            android:gravity="end"/>
     </LinearLayout>
 
     <ac.id.del.delifood.utils.InterButton

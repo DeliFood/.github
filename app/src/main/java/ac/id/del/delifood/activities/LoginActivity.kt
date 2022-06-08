@@ -1,15 +1,20 @@
 package ac.id.del.delifood.activities
 
 import ac.id.del.delifood.R
+import ac.id.del.delifood.utils.InterButton
+import ac.id.del.delifood.utils.InterEditText
+import ac.id.del.delifood.utils.InterTextViewBold
+import ac.id.del.delifood.utils.InterTextViewRegular
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.WindowInsets
 import android.view.WindowManager
-import ac.id.del.delifood.utils.InterTextViewBold
+import android.view.View
+import com.google.firebase.auth.FirebaseAuth
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -24,10 +29,84 @@ class LoginActivity : AppCompatActivity() {
             )
         }
 
-        val textRegister: InterTextViewBold = findViewById(R.id.txt_register)
-        textRegister.setOnClickListener {
-            val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
-            startActivity(intent)
+        // Click event assigned to Forgot Password text
+        val forgotPassword = findViewById<InterTextViewRegular>(R.id.forgot_password)
+        val btnLogin = findViewById<InterButton>(R.id.button_login)
+        val textRegister = findViewById<InterTextViewBold>(R.id.txt_register)
+
+        forgotPassword.setOnClickListener(this)
+        btnLogin.setOnClickListener(this)
+        textRegister.setOnClickListener(this)
+    }
+
+    override fun onClick(view: View?) {
+        if (view != null) {
+            when (view.id) {
+                R.id.forgot_password -> {
+
+                }
+
+                R.id.btn_login -> {
+                    // Start
+                    loginRegisteredUser()
+                    // END
+                }
+
+                R.id.txt_register -> {
+                    // Launch the register screen when the user click on the text
+                    val  intent = Intent(this@LoginActivity, RegisterActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+        }
+    }
+
+    private fun validateLoginDetails(): Boolean {
+
+        val etEmail: InterEditText = findViewById(R.id.et_email)
+        val etPassword: InterEditText = findViewById(R.id.et_password)
+
+        return when {
+            TextUtils.isEmpty(etEmail.text.toString().trim { it <= ' '}) -> {
+                showErrorSnackBar(resources.getString(R.string.err_msg_enter_email), true)
+                false
+            }
+            TextUtils.isEmpty(etPassword.text.toString().trim { it <= ' '}) -> {
+                showErrorSnackBar(resources.getString(R.string.err_msg_enter_password), true)
+                false
+            }
+            else -> {
+                true
+            }
+        }
+    }
+
+    private  fun loginRegisteredUser() {
+        if (validateLoginDetails()) {
+
+            // Show the progress dialog
+            showProgresssDialog()
+
+            val etEmail: InterEditText = findViewById(R.id.et_email)
+            val etPassword: InterEditText = findViewById(R.id.et_password)
+            // Get th text from editText and trim the space
+
+            val email = etEmail.text.toString().trim { it <= ' '}
+            val password = etPassword.text.toString().trim { it <= ' '}
+
+            //Log in using FirebaseAuth
+            FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener { task ->
+
+                    // Hide the progress dialog
+                    hideProgresssDialog()
+
+                    if (task.isSuccessful) {
+                        showErrorSnackBar(resources.getString(R.string.login_successfull), false)
+                    } else {
+                        showErrorSnackBar(task.exception!!.message.toString(), false)
+                    }
+                }
         }
     }
 }

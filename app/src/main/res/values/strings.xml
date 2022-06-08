@@ -19,13 +19,16 @@
     <string name="title_home_category">Kategori</string>
     <string name="register">Daftar</string>
     <string name="login">Masuk</string>
+    <string name="forgot_password">Lupa Sandi</string>
     <string name="q_register">Belum ada akun?</string>
     <string name="q_login">Sudah ada akun?</string>
     <string name="username">Username</string>
     <string name="firstname">Nama Depan</string>
     <string name="lastname">Nama Belakang</string>
-    <string name="email_id"> Email ID</string>
+    <string name="email_id">Email ID</string>
     <string name="password">Kata Sandi</string>
+    <string name="detail_valid">Data yang kamu masukkan sudah benar </string>
+    <string name="login_successfull">Kamu Telah Berhasil Login</string>
     <string name="confirm_password">Masukkan Ulang Kata Sandi</string>
     <string name="create_account">Membuat AKun</string>
     <string name="err_msg_enter_first_name">Tolong masukkan nama depan </string>

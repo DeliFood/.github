@@ -108,12 +108,18 @@ class RegisterActivity : BaseActivity() {
         val etPassword: InterEditText = findViewById(R.id.et_password)
 
         if(validateRegisterDetails()) {
+            showProgresssDialog()
+
             val email: String = etEmail.text.toString().trim {  it <= ' ' }
             val password: String = etPassword.text.toString().trim {  it <= ' ' }
 
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(
                     OnCompleteListener<AuthResult> { task ->
+
+                        hideProgresssDialog()
+
+                        // If the registration is succesfullty done
                         if (task.isSuccessful) {
                             val firebaseUser: FirebaseUser = task.result!!.user!!
 
@@ -121,6 +127,9 @@ class RegisterActivity : BaseActivity() {
                                 "Kamu telah barhasil mendaftar. User Id kamu adalah ${firebaseUser.uid}",
                                 false
                             )
+
+                            FirebaseAuth.getInstance().signOut()
+                            finish()
                         } else {
                             showErrorSnackBar(task.exception!!.message.toString(), true)
                         }
