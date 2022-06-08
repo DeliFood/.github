@@ -1,7 +1,8 @@
+@file:Suppress("RedundantSamConstructor", "RemoveExplicitTypeArguments")
+
 package ac.id.del.delifood.activities
 
 import ac.id.del.delifood.R
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
@@ -35,8 +36,7 @@ class RegisterActivity : BaseActivity() {
 
         val textLogin: InterTextViewBold = findViewById(R.id.txt_login)
         textLogin.setOnClickListener {
-            val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-            startActivity(intent)
+           onBackPressed()
         }
 
         val buttonRegister: InterButton = findViewById(R.id.button_register)
@@ -119,7 +119,7 @@ class RegisterActivity : BaseActivity() {
 
                         hideProgresssDialog()
 
-                        // If the registration is succesfullty done
+                        // If the registration is successfully done
                         if (task.isSuccessful) {
                             val firebaseUser: FirebaseUser = task.result!!.user!!
 

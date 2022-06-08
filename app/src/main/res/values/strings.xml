@@ -20,6 +20,9 @@
     <string name="register">Daftar</string>
     <string name="login">Masuk</string>
     <string name="forgot_password">Lupa Sandi</string>
+    <string name="submit">Kirim</string>
+    <string name="desc_forgot_password">Masukkan username atau email Anda. Kami akan mengirimkan pada Anda email untuk mengatur ulang sandi Anda</string>
+    <string name="email_sent_success">Email telah berhasil dikirim untuk mengatur ulang kata sandi</string>
     <string name="q_register">Belum ada akun?</string>
     <string name="q_login">Sudah ada akun?</string>
     <string name="username">Username</string>
