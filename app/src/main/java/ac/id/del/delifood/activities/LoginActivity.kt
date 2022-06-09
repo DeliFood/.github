@@ -64,8 +64,8 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
     private fun validateLoginDetails(): Boolean {
 
-        val etEmail: InterEditText = findViewById(R.id.et_email)
-        val etPassword: InterEditText = findViewById(R.id.et_password)
+        val etEmail: InterEditText = findViewById(R.id.et_email_login)
+        val etPassword: InterEditText = findViewById(R.id.et_password_login)
 
         return when {
             TextUtils.isEmpty(etEmail.text.toString().trim { it <= ' '}) -> {

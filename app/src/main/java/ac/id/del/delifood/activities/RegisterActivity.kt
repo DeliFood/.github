@@ -136,15 +136,15 @@ class RegisterActivity : BaseActivity() {
                                 etEmail.text.toString().trim { it <= ' ' },
                             )
 
-//                            showErrorSnackBar(
-//                                "Kamu telah barhasil mendaftar. User Id kamu adalah ${firebaseUser.uid}",
-//                                false
-//                            )
+                            showErrorSnackBar(
+                                "Kamu telah barhasil mendaftar. User Id kamu adalah ${firebaseUser.uid}",
+                                false
+                            )
 
                             FirestoreClass().registerUser(this@RegisterActivity, user)
 
-                            FirebaseAuth.getInstance().signOut()
-                            finish()
+//                            FirebaseAuth.getInstance().signOut()
+//                            finish()
                         } else {
                             hideProgresssDialog()
                             showErrorSnackBar(task.exception!!.message.toString(), true)
