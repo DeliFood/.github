@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "delifood-edebd",
+    "delifood": "delifood-edebd"
+  },
+  "targets": {}
+}
