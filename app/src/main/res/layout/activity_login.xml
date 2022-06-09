@@ -46,7 +46,7 @@
             app:cardCornerRadius="25dp" >
 
             <ac.id.del.delifood.utils.InterEditText
-                android:id="@+id/et_email_login"
+                android:id="@+id/et_email"
                 android:layout_width="match_parent"
                 android:layout_height="57dp"
                 android:hint="@string/email_id"
@@ -63,7 +63,7 @@
             app:cardCornerRadius="25dp" >
 
             <ac.id.del.delifood.utils.InterEditText
-                android:id="@+id/et_password_login"
+                android:id="@+id/et_password"
                 android:layout_width="match_parent"
                 android:layout_height="57dp"
                 android:hint="@string/password"

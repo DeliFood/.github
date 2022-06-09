@@ -47,7 +47,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                     startActivity(intent)
                 }
 
-                R.id.btn_login -> {
+                R.id.button_login -> {
                     // Start
                     loginRegisteredUser()
                     // END
@@ -64,8 +64,8 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
     private fun validateLoginDetails(): Boolean {
 
-        val etEmail: InterEditText = findViewById(R.id.et_email_login)
-        val etPassword: InterEditText = findViewById(R.id.et_password_login)
+        val etEmail: InterEditText = findViewById(R.id.et_email)
+        val etPassword: InterEditText = findViewById(R.id.et_password)
 
         return when {
             TextUtils.isEmpty(etEmail.text.toString().trim { it <= ' '}) -> {
@@ -103,7 +103,9 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                     hideProgresssDialog()
 
                     if (task.isSuccessful) {
-                        showErrorSnackBar(resources.getString(R.string.login_successfull), false)
+//                        showErrorSnackBar(resources.getString(R.string.login_successfull), false)
+                        val  intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        startActivity(intent)
                     } else {
                         showErrorSnackBar(task.exception!!.message.toString(), false)
                     }
