@@ -140,7 +140,8 @@ class RegisterActivity : BaseActivity() {
 //                                "Kamu telah barhasil mendaftar. User Id kamu adalah ${firebaseUser.uid}",
 //                                false
 //                            )
-                            FirestoreClass().registerUser(this, user)
+
+                            FirestoreClass().registerUser(this@RegisterActivity, user)
 
                             FirebaseAuth.getInstance().signOut()
                             finish()
