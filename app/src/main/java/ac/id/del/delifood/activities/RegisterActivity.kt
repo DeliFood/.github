@@ -143,8 +143,8 @@ class RegisterActivity : BaseActivity() {
 
                             FirestoreClass().registerUser(this@RegisterActivity, user)
 
-//                            FirebaseAuth.getInstance().signOut()
-//                            finish()
+                           // FirebaseAuth.getInstance().signOut()
+                           // finish()
                         } else {
                             hideProgresssDialog()
                             showErrorSnackBar(task.exception!!.message.toString(), true)

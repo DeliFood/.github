@@ -4,14 +4,15 @@ import ac.id.del.delifood.activities.RegisterActivity
 import ac.id.del.delifood.models.User
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class FirestoreClass {
-    private val mFirestore = FirebaseFirestore.getInstance()
+    private val mFirestore = Firebase.firestore
 
     fun registerUser(activity: RegisterActivity, userInfo: User) {
-        mFirestore.collection("user")
+        mFirestore.collection("users")
             .document(userInfo.id)
             .set(userInfo, SetOptions.merge())
             .addOnSuccessListener {
@@ -21,7 +22,7 @@ class FirestoreClass {
                 activity.hideProgresssDialog()
                 Log.e(
                     activity.javaClass.simpleName,
-                    "Error while registering the user",
+                    "Error ketika mendaftarkan user",
                     e
                 )
             }
