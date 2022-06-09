@@ -3,6 +3,8 @@
 package ac.id.del.delifood.activities
 
 import ac.id.del.delifood.R
+import ac.id.del.delifood.firestore.FirestoreClass
+import ac.id.del.delifood.models.User
 import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
@@ -11,6 +13,7 @@ import android.view.WindowManager
 import ac.id.del.delifood.utils.InterTextViewBold
 import ac.id.del.delifood.utils.InterEditText
 import ac.id.del.delifood.utils.InterButton
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
@@ -104,6 +107,9 @@ class RegisterActivity : BaseActivity() {
     }
 
     private fun registerUser() {
+
+        val etFirstName: InterEditText = findViewById(R.id.et_first_name)
+        val etLastName: InterEditText = findViewById(R.id.et_last_name)
         val etEmail: InterEditText = findViewById(R.id.et_email)
         val etPassword: InterEditText = findViewById(R.id.et_password)
 
@@ -117,24 +123,44 @@ class RegisterActivity : BaseActivity() {
                 .addOnCompleteListener(
                     OnCompleteListener<AuthResult> { task ->
 
-                        hideProgresssDialog()
+//                        hideProgresssDialog()
 
                         // If the registration is successfully done
                         if (task.isSuccessful) {
                             val firebaseUser: FirebaseUser = task.result!!.user!!
 
-                            showErrorSnackBar(
-                                "Kamu telah barhasil mendaftar. User Id kamu adalah ${firebaseUser.uid}",
-                                false
+                            val user = User(
+                                firebaseUser.uid,
+                                etFirstName.text.toString().trim { it <= ' '},
+                                etLastName.text.toString().trim { it <= ' ' },
+                                etEmail.text.toString().trim { it <= ' ' },
                             )
+
+//                            showErrorSnackBar(
+//                                "Kamu telah barhasil mendaftar. User Id kamu adalah ${firebaseUser.uid}",
+//                                false
+//                            )
+                            FirestoreClass().registerUser(this, user)
 
                             FirebaseAuth.getInstance().signOut()
                             finish()
                         } else {
+                            hideProgresssDialog()
                             showErrorSnackBar(task.exception!!.message.toString(), true)
                         }
                     }
                 )
         }
+    }
+
+    fun userRegistrationSuccess() {
+        // Hide the progress dialog
+        hideProgresssDialog()
+
+        Toast.makeText(
+            this@RegisterActivity,
+            resources.getString(R.string.register_successfull),
+            Toast.LENGTH_LONG
+        ).show()
     }
 }

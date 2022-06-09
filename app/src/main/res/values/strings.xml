@@ -31,7 +31,8 @@
     <string name="email_id">Email ID</string>
     <string name="password">Kata Sandi</string>
     <string name="detail_valid">Data yang kamu masukkan sudah benar </string>
-    <string name="login_successfull">Kamu Telah Berhasil Login</string>
+    <string name="login_successfull">Kamu Telah Berhasil Masuk</string>
+    <string name="register_successfull">Kamu Telah Berhasil Mendaftar</string>
     <string name="confirm_password">Masukkan Ulang Kata Sandi</string>
     <string name="create_account">Membuat AKun</string>
     <string name="err_msg_enter_first_name">Tolong masukkan nama depan </string>
