@@ -2,6 +2,8 @@ package ac.id.del.delifood.activities
 
 import ac.id.del.delifood.R
 import ac.id.del.delifood.databinding.ActivityMainBinding
+import ac.id.del.delifood.utils.Constants
+import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -24,6 +26,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 //        FirebaseDatabase.getInstance().setPersistenceEnabled(true)
+        val sharedPreferences =
+            getSharedPreferences(
+                Constants.DELIFOOD_PREFERENCES,
+                Context.MODE_PRIVATE)
+        val username = sharedPreferences.getString(
+            Constants.LOGGED_IN_USERNAME,
+            ""
+        )!!
+
 
         val navView: BottomNavigationView = binding.navView
 

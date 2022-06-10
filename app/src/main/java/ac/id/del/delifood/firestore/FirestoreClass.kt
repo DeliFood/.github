@@ -5,6 +5,8 @@ import ac.id.del.delifood.activities.RegisterActivity
 import ac.id.del.delifood.models.User
 import ac.id.del.delifood.utils.Constants
 import android.app.Activity
+import android.content.Context
+import android.content.SharedPreferences
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -30,7 +32,7 @@ class FirestoreClass {
             }
     }
     
-    fun getCurrentUserID(): String {
+    private fun getCurrentUserID(): String {
         val currentUser = FirebaseAuth.getInstance().currentUser
         
         var currentUserID = ""
@@ -49,13 +51,27 @@ class FirestoreClass {
 
                 val user = document.toObject(User::class.java)!!
 
+                val sharedPreferences =
+                    activity.getSharedPreferences(
+                        Constants.DELIFOOD_PREFERENCES,
+                        Context.MODE_PRIVATE
+                    )
+
+                val editor: SharedPreferences.Editor = sharedPreferences.edit()
+                editor.putString(
+                    Constants.LOGGED_IN_USERNAME,
+                    "${user.firstName} ${user.lastName}"
+                )
+
+                editor.apply()
+
                 when (activity) {
                     is LoginActivity -> {
                         activity.userLoggedSuccess(user)
                     }
                 }
             }
-            .addOnFailureListener { e ->
+            .addOnFailureListener {
                 when (activity) {
                     is LoginActivity -> {
                         activity.hideProgresssDialog()

@@ -118,8 +118,6 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
                     if (task.isSuccessful) {
 //                        showErrorSnackBar(resources.getString(R.string.login_successfull), false)
-                        val  intent = Intent(this@LoginActivity, MainActivity::class.java)
-                        startActivity(intent)
 
                         FirestoreClass().getUserDetails(this@LoginActivity)
                     } else {
