@@ -1,6 +1,8 @@
 package ac.id.del.delifood.activities
 
 import ac.id.del.delifood.R
+import ac.id.del.delifood.firestore.FirestoreClass
+import ac.id.del.delifood.models.User
 import ac.id.del.delifood.utils.InterButton
 import ac.id.del.delifood.utils.InterEditText
 import ac.id.del.delifood.utils.InterTextViewBold
@@ -9,6 +11,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.view.View
@@ -37,6 +40,17 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         forgotPassword.setOnClickListener(this)
         btnLogin.setOnClickListener(this)
         textRegister.setOnClickListener(this)
+    }
+
+    fun userLoggedSuccess(user: User) {
+        hideProgresssDialog()
+
+        Log.i("First Name", user.firstName)
+        Log.i("Last Name", user.lastName)
+        Log.i("Email", user.email)
+
+        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+        finish()
     }
 
     override fun onClick(view: View?) {
@@ -100,13 +114,14 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                 .addOnCompleteListener { task ->
 
                     // Hide the progress dialog
-                    hideProgresssDialog()
+//                    hideProgresssDialog()
 
                     if (task.isSuccessful) {
 //                        showErrorSnackBar(resources.getString(R.string.login_successfull), false)
-                        val  intent = Intent(this@LoginActivity, MainActivity::class.java)
-                        startActivity(intent)
+
+                        FirestoreClass().getUserDetails(this@LoginActivity)
                     } else {
+                        hideProgresssDialog()
                         showErrorSnackBar(task.exception!!.message.toString(), false)
                     }
                 }
