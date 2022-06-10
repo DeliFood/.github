@@ -13,7 +13,6 @@ import android.view.WindowManager
 import ac.id.del.delifood.utils.InterTextViewBold
 import ac.id.del.delifood.utils.InterEditText
 import ac.id.del.delifood.utils.InterButton
-import android.content.Intent
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.google.android.gms.tasks.OnCompleteListener

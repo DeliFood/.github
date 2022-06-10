@@ -1,7 +1,10 @@
 package ac.id.del.delifood.firestore
 
+import ac.id.del.delifood.activities.LoginActivity
 import ac.id.del.delifood.activities.RegisterActivity
 import ac.id.del.delifood.models.User
+import ac.id.del.delifood.utils.Constants
+import android.app.Activity
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -11,7 +14,7 @@ class FirestoreClass {
     private val mFirestore = FirebaseFirestore.getInstance()
 
     fun registerUser(activity: RegisterActivity, userInfo: User) {
-        mFirestore.collection("users")
+        mFirestore.collection(Constants.USERS)
             .document(userInfo.id)
             .set(userInfo, SetOptions.merge())
             .addOnSuccessListener {
@@ -37,4 +40,27 @@ class FirestoreClass {
         return  currentUserID
     }
 
+    fun getUserDetails(activity: Activity) {
+        mFirestore.collection(Constants.USERS)
+            .document(getCurrentUserID())
+            .get()
+            .addOnSuccessListener { document ->
+                Log.i(activity.javaClass.simpleName, document.toString())
+
+                val user = document.toObject(User::class.java)!!
+
+                when (activity) {
+                    is LoginActivity -> {
+                        activity.userLoggedSuccess(user)
+                    }
+                }
+            }
+            .addOnFailureListener { e ->
+                when (activity) {
+                    is LoginActivity -> {
+                        activity.hideProgresssDialog()
+                    }
+                }
+            }
+    }
 }
