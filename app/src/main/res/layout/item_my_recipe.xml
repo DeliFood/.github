@@ -27,7 +27,7 @@
 
 
         <TextView
-            android:id="@+id/text_my_recipe"
+            android:id="@+id/text_my_recipe_item"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/blank"
