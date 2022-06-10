@@ -4,12 +4,11 @@ import ac.id.del.delifood.activities.RegisterActivity
 import ac.id.del.delifood.models.User
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 
 class FirestoreClass {
-    private val mFirestore = Firebase.firestore
+    private val mFirestore = FirebaseFirestore.getInstance()
 
     fun registerUser(activity: RegisterActivity, userInfo: User) {
         mFirestore.collection("users")
