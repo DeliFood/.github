@@ -15,8 +15,44 @@
         android:layout_marginEnd="8dp"
         android:textAlignment="center"
         android:textSize="20sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/icon_person_my_account"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_baseline_person_24"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/login"
+        android:layout_margin="?android:actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ac.id.del.delifood.utils.InterTextViewBold
+        android:id="@+id/name_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="22sp"
+        android:text="@string/username"
+        app:layout_constraintTop_toBottomOf="@+id/icon_person_my_account"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ac.id.del.delifood.utils.InterButton
+        android:id="@+id/button_sign_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_out"
+        app:layout_constraintTop_toBottomOf="@+id/name_profile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        style="@style/btn_default" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

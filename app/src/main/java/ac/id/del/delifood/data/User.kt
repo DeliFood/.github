@@ -1,4 +1,4 @@
-package ac.id.del.delifood.models
+package ac.id.del.delifood.data
 
 class User (
     val id: String = "",
@@ -6,7 +6,4 @@ class User (
     val lastName: String = "",
     val email: String = "",
     val images: String = "",
-    val mobile: Long = 0,
-    val gender: String = "",
-    val profileComplete: Int = 0
 )

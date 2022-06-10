@@ -1,10 +1,10 @@
 @file:Suppress("RedundantSamConstructor", "RemoveExplicitTypeArguments")
 
-package ac.id.del.delifood.activities
+package ac.id.del.delifood.ui.loginRegister
 
 import ac.id.del.delifood.R
 import ac.id.del.delifood.firestore.FirestoreClass
-import ac.id.del.delifood.models.User
+import ac.id.del.delifood.data.User
 import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
@@ -20,10 +20,10 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
-class RegisterActivity : BaseActivity() {
+class RegisterFragment : BaseFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        setContentView(R.layout.fragment_register)
 
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -141,7 +141,7 @@ class RegisterActivity : BaseActivity() {
                                 false
                             )
 
-                            FirestoreClass().registerUser(this@RegisterActivity, user)
+                            FirestoreClass().registerUser(this@RegisterFragment, user)
 
                            // FirebaseAuth.getInstance().signOut()
                            // finish()
@@ -159,7 +159,7 @@ class RegisterActivity : BaseActivity() {
         hideProgresssDialog()
 
         Toast.makeText(
-            this@RegisterActivity,
+            this@RegisterFragment,
             resources.getString(R.string.register_successfull),
             Toast.LENGTH_LONG
         ).show()

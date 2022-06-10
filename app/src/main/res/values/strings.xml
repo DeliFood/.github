@@ -30,6 +30,7 @@
     <string name="lastname">Nama Belakang</string>
     <string name="email_id">Email ID</string>
     <string name="password">Kata Sandi</string>
+    <string name="sign_out">Keluar</string>
     <string name="detail_valid">Data yang kamu masukkan sudah benar </string>
     <string name="login_successfull">Kamu Telah Berhasil Masuk</string>
     <string name="register_successfull">Kamu Telah Berhasil Mendaftar</string>
