@@ -28,5 +28,4 @@ class HomeAdapter (private  val mainCategoryList: List<MainCategory>) : Recycler
     class HomeViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView){
         val categoryHome: TextView = itemView.findViewById(R.id.text_category_home)
     }
-
 }

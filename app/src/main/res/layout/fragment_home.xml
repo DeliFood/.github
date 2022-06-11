@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.home.HomeFragment" >
 
         <TextView
             android:id="@+id/title_home_category"
@@ -20,7 +20,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/category_home"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@+id/title_home_category"

@@ -16,12 +16,15 @@ class HomeViewModel : ViewModel() {
 
     private val mainCategoryList: ArrayList<MainCategory> = arrayListOf()
 
+    private var count = 0
+
     private val _categoryHome = MutableLiveData<RecyclerView.Adapter<HomeAdapter.HomeViewHolder>>().apply {
         dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (mainCategorySnapshot in dataSnapshot.children) {
                     val mainCategory =  mainCategorySnapshot.getValue(MainCategory::class.java)
                     mainCategoryList.add(mainCategory!!)
+
                     value = HomeAdapter(mainCategoryList)
                 }
 
