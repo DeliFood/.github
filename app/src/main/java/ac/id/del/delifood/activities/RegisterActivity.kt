@@ -1,6 +1,6 @@
 @file:Suppress("RedundantSamConstructor", "RemoveExplicitTypeArguments")
 
-package ac.id.del.delifood.ui.loginRegister
+package ac.id.del.delifood.activities
 
 import ac.id.del.delifood.R
 import ac.id.del.delifood.firestore.FirestoreClass
@@ -20,10 +20,10 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
-class RegisterFragment : BaseFragment() {
+class RegisterActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_register)
+        setContentView(R.layout.activity_register)
 
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -141,7 +141,7 @@ class RegisterFragment : BaseFragment() {
                                 false
                             )
 
-                            FirestoreClass().registerUser(this@RegisterFragment, user)
+                            FirestoreClass().registerUser(this@RegisterActivity, user)
 
                            // FirebaseAuth.getInstance().signOut()
                            // finish()
@@ -159,7 +159,7 @@ class RegisterFragment : BaseFragment() {
         hideProgresssDialog()
 
         Toast.makeText(
-            this@RegisterFragment,
+            this@RegisterActivity,
             resources.getString(R.string.register_successfull),
             Toast.LENGTH_LONG
         ).show()

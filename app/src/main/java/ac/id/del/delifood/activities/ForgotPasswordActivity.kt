@@ -1,4 +1,4 @@
-package ac.id.del.delifood.ui.loginRegister
+package ac.id.del.delifood.activities
 
 import ac.id.del.delifood.R
 import ac.id.del.delifood.utils.InterButton
@@ -8,10 +8,10 @@ import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.google.firebase.auth.FirebaseAuth
 
-class ForgotPasswordFragment : BaseFragment() {
+class ForgotPasswordActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_forgot_password)
+        setContentView(R.layout.activity_forgot_password)
         setupActionBar()
     }
 
@@ -43,7 +43,7 @@ class ForgotPasswordFragment : BaseFragment() {
                         if (task.isSuccessful) {
                             // Show the toast message and finish the forgot password activity to go back to the
                             Toast.makeText(
-                                this@ForgotPasswordFragment,
+                                this@ForgotPasswordActivity,
                                 resources.getString(R.string.email_sent_success),
                                 Toast.LENGTH_LONG
                             ).show()

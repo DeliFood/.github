@@ -13,6 +13,8 @@
     <string name="ingredients_main_recipe">Bahan: </string>
     <string name="procedure_main_recipe">Cara Memasak: </string>
     <string name="blank">blank</string>
+    <string name="ic_pencil">Image Edit</string>
+    <string name="ic_trash">Image Delete</string>
     <string name="desc_recipe">Recipe</string>
     <string name="img_landing_page">Image Landing Page</string>
     <string name="search">Cari</string>

@@ -10,7 +10,7 @@ import com.google.firebase.database.*
 class MainRecipeViewModel : ViewModel() {
 
     private val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().reference
-    private val dbRef: DatabaseReference = databaseReference.child("main_recipe").child("1")
+    private val dbRef: DatabaseReference = databaseReference.child("main_recipe")
 
     private val _textTitle = MutableLiveData<String>().apply {
         dbRef.child("title_recipe").get()

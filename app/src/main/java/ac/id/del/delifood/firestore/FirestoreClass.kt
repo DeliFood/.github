@@ -1,8 +1,8 @@
 package ac.id.del.delifood.firestore
 
+import ac.id.del.delifood.activities.LoginActivity
+import ac.id.del.delifood.activities.RegisterActivity
 import ac.id.del.delifood.data.User
-import ac.id.del.delifood.ui.loginRegister.LoginFragment
-import ac.id.del.delifood.ui.loginRegister.RegisterFragment
 import ac.id.del.delifood.utils.Constants
 import android.app.Activity
 import android.content.Context
@@ -15,17 +15,17 @@ import com.google.firebase.firestore.SetOptions
 class FirestoreClass {
     private val mFirestore = FirebaseFirestore.getInstance()
 
-    fun registerUser(fragment: RegisterFragment, userInfo: User) {
+    fun registerUser(activity: RegisterActivity, userInfo: User) {
         mFirestore.collection(Constants.USERS)
             .document(userInfo.id)
             .set(userInfo, SetOptions.merge())
             .addOnSuccessListener {
-                fragment.userRegistrationSuccess()
+                activity.userRegistrationSuccess()
             }
             .addOnFailureListener { e ->
-                fragment.hideProgresssDialog()
+                activity.hideProgresssDialog()
                 Log.e(
-                    fragment.javaClass.simpleName,
+                    activity.javaClass.simpleName,
                     "Error ketika mendaftarkan user",
                     e
                 )
@@ -66,14 +66,14 @@ class FirestoreClass {
                 editor.apply()
 
                 when (activity) {
-                    is LoginFragment -> {
+                    is LoginActivity -> {
                         activity.userLoggedSuccess(user)
                     }
                 }
             }
             .addOnFailureListener {
                 when (activity) {
-                    is LoginFragment -> {
+                    is LoginActivity -> {
                         activity.hideProgresssDialog()
                     }
                 }

@@ -1,4 +1,4 @@
-package ac.id.del.delifood.ui.loginRegister
+package ac.id.del.delifood.activities
 
 import ac.id.del.delifood.R
 import android.app.Dialog
@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 
-open class BaseFragment : AppCompatActivity() {
+open class BaseActivity : AppCompatActivity() {
     private lateinit var mProgressDialog: Dialog
 
     fun showErrorSnackBar(message: String, errorMessage: Boolean) {
@@ -17,14 +17,14 @@ open class BaseFragment : AppCompatActivity() {
         if (errorMessage) {
             snackBarView.setBackgroundColor(
                 ContextCompat.getColor(
-                    this@BaseFragment,
+                    this@BaseActivity,
                     R.color.colorSnackBarError
                 )
             )
         } else {
             snackBarView.setBackgroundColor(
                 ContextCompat.getColor(
-                    this@BaseFragment,
+                    this@BaseActivity,
                     R.color.colorSnackBarSuccess
                 )
             )

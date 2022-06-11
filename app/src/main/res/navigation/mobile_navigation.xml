@@ -63,7 +63,12 @@
         android:id="@+id/navigation_my_account"
         android:name="ac.id.del.delifood.ui.myAccount.MyAccountFragment"
         android:label="@string/title_my_account"
-        tools:layout="@layout/fragment_my_account" />
+        tools:layout="@layout/fragment_my_account_after_login">
+
+        <action
+            android:id="@+id/action_MyAccountFragmentAfterLogin_to_MyAccount_BeforeLogin"
+            app:destination="@id/navigation_my_account" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_add_recipe"

@@ -1,7 +1,6 @@
-package ac.id.del.delifood.ui.loginRegister
+package ac.id.del.delifood.activities
 
 import ac.id.del.delifood.R
-import ac.id.del.delifood.activities.MainActivity
 import ac.id.del.delifood.firestore.FirestoreClass
 import ac.id.del.delifood.data.User
 import ac.id.del.delifood.utils.InterButton
@@ -18,10 +17,10 @@ import android.view.WindowManager
 import android.view.View
 import com.google.firebase.auth.FirebaseAuth
 
-class LoginFragment : BaseFragment(), View.OnClickListener {
+class LoginActivity : BaseActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_login)
+        setContentView(R.layout.activity_login)
 
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -50,8 +49,7 @@ class LoginFragment : BaseFragment(), View.OnClickListener {
         Log.i("Last Name", user.lastName)
         Log.i("Email", user.email)
 
-        val intent = Intent(this@LoginFragment, MainActivity::class.java)
-        startActivity(intent)
+        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
         finish()
     }
 
@@ -59,7 +57,7 @@ class LoginFragment : BaseFragment(), View.OnClickListener {
         if (view != null) {
             when (view.id) {
                 R.id.forgot_password -> {
-                    val intent = Intent(this@LoginFragment, ForgotPasswordFragment::class.java)
+                    val  intent = Intent(this@LoginActivity, ForgotPasswordActivity::class.java)
                     startActivity(intent)
                 }
 
@@ -71,7 +69,7 @@ class LoginFragment : BaseFragment(), View.OnClickListener {
 
                 R.id.txt_register -> {
                     // Launch the register screen when the user click on the text
-                    val  intent = Intent(this@LoginFragment, RegisterFragment::class.java)
+                    val  intent = Intent(this@LoginActivity, RegisterActivity::class.java)
                     startActivity(intent)
                 }
             }
@@ -121,7 +119,7 @@ class LoginFragment : BaseFragment(), View.OnClickListener {
                     if (task.isSuccessful) {
 //                        showErrorSnackBar(resources.getString(R.string.login_successfull), false)
 
-                        FirestoreClass().getUserDetails(this@LoginFragment)
+                        FirestoreClass().getUserDetails(this@LoginActivity)
                     } else {
                         hideProgresssDialog()
                         showErrorSnackBar(task.exception!!.message.toString(), false)

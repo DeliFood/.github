@@ -34,6 +34,7 @@ class MyRecipeFragment : Fragment() {
 
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(context)
         val myRecipeView: RecyclerView = binding.myRecipeList
+
         myRecipeView.layoutManager = layoutManager
         myRecipeView.setHasFixedSize(true)
 
