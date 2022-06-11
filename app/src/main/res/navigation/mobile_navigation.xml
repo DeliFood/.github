@@ -11,8 +11,25 @@
         tools:layout="@layout/fragment_home" >
 
         <action
-            android:id="@+id/action_HomeFragment_to_MainRecipeFragment"
+            android:id="@+id/action_HomeFragment_to_ListCategoryFragment"
+            app:destination="@id/navigation_list_category" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_list_category"
+        android:name="ac.id.del.delifood.ui.listCategory.ListCategoryFragment"
+        android:label="@string/title_list_category"
+        tools:layout="@layout/fragment_list_category" >
+
+        <action
+            android:id="@+id/action_ListCategoryFragment_to_HomeFragment"
+            app:destination="@id/navigation_home" />
+
+        <action
+            android:id="@+id/action_ListCategoryFragment_to_MainRecipeFragment"
             app:destination="@id/navigation_main_recipe" />
+
     </fragment>
 
     <fragment
@@ -20,9 +37,15 @@
         android:name="ac.id.del.delifood.ui.mainRecipe.MainRecipeFragment"
         android:label="@string/title_main_recipe"
         tools:layout="@layout/fragment_main_recipe" >
+
+        <action
+            android:id="@+id/action_MainRecipeFragment_to_ListCategoryFragment"
+            app:destination="@id/navigation_list_category" />
+
         <action
             android:id="@+id/action_MainRecipeFragment_to_HomeFragment"
             app:destination="@id/navigation_home" />
+
     </fragment>
 
     <fragment
@@ -40,7 +63,12 @@
         android:id="@+id/navigation_my_account"
         android:name="ac.id.del.delifood.ui.myAccount.MyAccountFragment"
         android:label="@string/title_my_account"
-        tools:layout="@layout/fragment_my_account" />
+        tools:layout="@layout/fragment_my_account_after_login">
+
+        <action
+            android:id="@+id/action_MyAccountFragmentAfterLogin_to_MyAccount_BeforeLogin"
+            app:destination="@id/navigation_my_account" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_add_recipe"

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -23,39 +22,81 @@
             tools:layout_editor_absoluteY="0dp" />
 
         <TextView
+            android:id="@+id/title_main_recipe"
             style="@style/main_recipe_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title_recipe"
+            android:text="@string/title"
             android:textColor="#A1887F" />
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/history_recipe"
-            style="@style/main_recipe_text" />
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp">
 
-        <TextView
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/origin_main_recipe"
+                style="@style/main_recipe_text" />
+
+            <TextView
+                android:id="@+id/origin_main_recipe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:text="@string/blank"
+                style="@style/main_recipe_text" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/desc_recipe"
-            style="@style/main_recipe_text" />
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ingredients_main_recipe"
+                style="@style/main_recipe_text" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ingredients_list_main_recipe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/blank"
+                style="@style/main_recipe_text" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/procedure_main_recipe"
+                style="@style/main_recipe_text" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/procedure_list_main_recipe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/blank"
+                style="@style/main_recipe_text" />
+
+        </LinearLayout>
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/text_main_recipe"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"  />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,15 +1,16 @@
 package ac.id.del.delifood.ui.myRecipe
 
 import ac.id.del.delifood.R
+import ac.id.del.delifood.databinding.FragmentMyRecipeBinding
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import ac.id.del.delifood.databinding.FragmentMyRecipeBinding
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class MyRecipeFragment : Fragment() {
 
@@ -30,9 +31,15 @@ class MyRecipeFragment : Fragment() {
         _binding = FragmentMyRecipeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textMyRecipe
-        myRecipeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+
+        val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(context)
+        val myRecipeView: RecyclerView = binding.myRecipeList
+
+        myRecipeView.layoutManager = layoutManager
+        myRecipeView.setHasFixedSize(true)
+
+        myRecipeViewModel.myRecipe.observe(viewLifecycleOwner) {
+            myRecipeView.adapter = it
         }
 
         return root

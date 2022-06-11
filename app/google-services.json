@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "428301131466",
+    "firebase_url": "https://delifood-edebd-default-rtdb.firebaseio.com",
     "project_id": "delifood-edebd",
     "storage_bucket": "delifood-edebd.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "428301131466-n1f35nha461n8627lpuj1n0id4i4paae.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ac.id.del.delifood",
+            "certificate_hash": "e6e4614f77f58233f5bfd667db2598724147971c"
+          }
+        },
         {
           "client_id": "428301131466-ji3ihptfkh9815s84qibpk2rsgpde0a1.apps.googleusercontent.com",
           "client_type": 3
