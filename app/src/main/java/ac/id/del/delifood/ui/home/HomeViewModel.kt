@@ -6,7 +6,6 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 
 class HomeViewModel : ViewModel() {
@@ -16,16 +15,14 @@ class HomeViewModel : ViewModel() {
 
     private val mainCategoryList: ArrayList<MainCategory> = arrayListOf()
 
-    private var count = 0
-
-    private val _categoryHome = MutableLiveData<RecyclerView.Adapter<HomeAdapter.HomeViewHolder>>().apply {
+    private val _categoryHome = MutableLiveData<ArrayList<MainCategory>>().apply {
         dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (mainCategorySnapshot in dataSnapshot.children) {
                     val mainCategory =  mainCategorySnapshot.getValue(MainCategory::class.java)
                     mainCategoryList.add(mainCategory!!)
+                    value = mainCategoryList
 
-                    value = HomeAdapter(mainCategoryList)
                 }
 
 
@@ -38,6 +35,6 @@ class HomeViewModel : ViewModel() {
         )
     }
 
-    val categoryHome: LiveData<RecyclerView.Adapter<HomeAdapter.HomeViewHolder>> = _categoryHome
+    val categoryHome: LiveData<ArrayList<MainCategory>> = _categoryHome
 
 }

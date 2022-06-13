@@ -3,6 +3,7 @@ package ac.id.del.delifood.ui.listCategory
 import ac.id.del.delifood.R
 import ac.id.del.delifood.databinding.FragmentListCategoryBinding
 import ac.id.del.delifood.databinding.ItemListCategoryBinding
+import ac.id.del.delifood.ui.home.HomeFragment
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -59,4 +60,13 @@ class ListCategoryFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+//    companion object {
+//        @JvmStatic
+//        fun newInstance(origin: String) =
+//            ListCategoryFragment().apply {
+//                arguments = Bundle().apply {
+//                }
+//            }
+//    }
 }

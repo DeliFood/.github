@@ -1,5 +1,7 @@
 package ac.id.del.delifood.ui.home
 
+import ac.id.del.delifood.R
+import ac.id.del.delifood.data.MainCategory
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,17 +9,31 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import ac.id.del.delifood.databinding.FragmentHomeBinding
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private lateinit var adapter: HomeAdapter
+    private lateinit var categoryView: RecyclerView
+    var mainCategoryList: ArrayList<MainCategory> = arrayListOf()
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        adapter = HomeAdapter(mainCategoryList,
+            object : HomeAdapter.ClickListener {
+                override fun onItemClick(mainCategory: MainCategory) {
+                    findNavController().navigate(R.id.action_HomeFragment_to_ListCategoryFragment)
+                }
+            })
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,28 +47,22 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(context, 3)
-        val categoryView: RecyclerView = binding.categoryHome
+        categoryView = binding.categoryHome
         categoryView.layoutManager = layoutManager
         categoryView.setHasFixedSize(true)
 
         homeViewModel.categoryHome.observe(viewLifecycleOwner) {
-            categoryView.adapter = it
+            mainCategoryList = it
         }
+
+        categoryView.adapter = adapter
 
         return root
     }
 
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//
-//        binding1.cardViewItemHome.setOnClickListener {
-//            findNavController().navigate(R.id.action_HomeFragment_to_ListCategoryFragment)
-//        }
-//    }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 }
