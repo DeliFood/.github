@@ -2,13 +2,13 @@ package ac.id.del.delifood.ui.home
 
 import ac.id.del.delifood.R
 import ac.id.del.delifood.data.MainCategory
+import ac.id.del.delifood.databinding.FragmentHomeBinding
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import ac.id.del.delifood.databinding.FragmentHomeBinding
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,12 +27,19 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        adapter.holder.cardViewItemHome.setOnClickListener {
+            findNavController().navigate(R.id.action_HomeFragment_to_ListCategoryFragment)
+        }
+
         adapter = HomeAdapter(mainCategoryList,
             object : HomeAdapter.ClickListener {
                 override fun onItemClick(mainCategory: MainCategory) {
                     findNavController().navigate(R.id.action_HomeFragment_to_ListCategoryFragment)
                 }
             })
+
+        categoryView.adapter = adapter
+
     }
 
     override fun onCreateView(
@@ -54,8 +61,6 @@ class HomeFragment : Fragment() {
         homeViewModel.categoryHome.observe(viewLifecycleOwner) {
             mainCategoryList = it
         }
-
-        categoryView.adapter = adapter
 
         return root
     }
