@@ -10,7 +10,6 @@ import ac.id.del.delifood.databinding.FragmentHomeBinding
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-//private const val TAG = "HomeFragment"
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
@@ -18,6 +17,7 @@ class HomeFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,8 +42,17 @@ class HomeFragment : Fragment() {
         return root
     }
 
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//
+//        binding1.cardViewItemHome.setOnClickListener {
+//            findNavController().navigate(R.id.action_HomeFragment_to_ListCategoryFragment)
+//        }
+//    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }
