@@ -13,10 +13,8 @@ class ListCategoryAdapter (
 
     var listener: ListCategoryRecyclerViewClickListener? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
-    = ListCategoryViewHolder(
-        DataBindingUtil.inflate(
-            LayoutInflater.from(parent.context),
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ListCategoryViewHolder(
+        DataBindingUtil.inflate(LayoutInflater.from(parent.context),
             R.layout.item_list_category, parent, false
         )
     )
