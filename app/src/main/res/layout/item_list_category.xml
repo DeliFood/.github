@@ -8,7 +8,7 @@
         android:id="@+id/card_view_item_list_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp" >
+        android:layout_marginBottom="20dp" >
 
         <LinearLayout
             android:layout_width="match_parent"
