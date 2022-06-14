@@ -22,7 +22,7 @@ class MainRecipeProcedureAdapter (
     }
 
     override fun getItemCount(): Int {
-        return 1
+        return mainRecipeProcedure.size
     }
 
     class MainRecipeProcedureViewHolder (val itemMainRecipeProcedureBinding: ItemMainRecipeProcedureBinding)

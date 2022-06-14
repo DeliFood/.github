@@ -16,9 +16,6 @@ class MainRecipeFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private lateinit var mainRecipeIngredients: ArrayList<String>
-    private lateinit var mainRecipeProcedure: ArrayList<String>
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -40,23 +37,23 @@ class MainRecipeFragment : Fragment() {
 
         mainRecipeViewModel.mainRecipe.observe(viewLifecycleOwner) {
             textOrigin.text = it[position].origin
-            mainRecipeIngredients = it[position].ingredients!!
-            mainRecipeProcedure = it[position].procedure!!
+
+            val mainRecipeIngredientsAdapter = MainRecipeIngredientsAdapter(it[position].ingredients!!)
+            val textIngredients = binding.ingredientsListMainRecipe
+            textIngredients.apply {
+                this.adapter = mainRecipeIngredientsAdapter
+                this.layoutManager =  LinearLayoutManager(context)
+            }
+
+            val mainRecipeProcedureAdapter = MainRecipeProcedureAdapter(it[position].procedure!!)
+            val textProcedure = binding.procedureListMainRecipe
+            textProcedure.apply {
+                this.adapter = mainRecipeProcedureAdapter
+                this.layoutManager =  LinearLayoutManager(context)
+            }
+
         }
 
-        val mainRecipeIngredientsAdapter = MainRecipeIngredientsAdapter(mainRecipeIngredients)
-        val textIngredients = binding.ingredientsListMainRecipe
-        textIngredients.apply {
-            this.adapter = mainRecipeIngredientsAdapter
-            this.layoutManager =  LinearLayoutManager(context)
-        }
-
-        val mainRecipeProcedureAdapter = MainRecipeProcedureAdapter(mainRecipeProcedure)
-        val textProcedure = binding.procedureListMainRecipe
-        textProcedure.apply {
-            this.adapter = mainRecipeProcedureAdapter
-            this.layoutManager =  LinearLayoutManager(context)
-        }
 
         return root
     }
