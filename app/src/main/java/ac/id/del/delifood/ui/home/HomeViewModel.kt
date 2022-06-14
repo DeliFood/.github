@@ -36,5 +36,4 @@ class HomeViewModel : ViewModel() {
     }
 
     val categoryHome: LiveData<ArrayList<MainCategory>> = _categoryHome
-
 }
