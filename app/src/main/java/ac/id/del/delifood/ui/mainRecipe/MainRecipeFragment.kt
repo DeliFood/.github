@@ -31,11 +31,11 @@ class MainRecipeFragment : Fragment() {
 
         titleRecipe = arguments?.getString("title_recipe")!!
 
+
         val textTitle = binding.titleMainRecipe
         textTitle.text = titleRecipe
 
         val textOrigin = binding.originMainRecipe
-
         mainRecipeViewModel.mainRecipe.observe(viewLifecycleOwner) {
             textOrigin.text = it.origin
 
