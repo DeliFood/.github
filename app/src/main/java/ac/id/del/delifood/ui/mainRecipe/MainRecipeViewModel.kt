@@ -10,26 +10,45 @@ import com.google.firebase.database.*
 
 class MainRecipeViewModel : ViewModel() {
 
+    private val titleRecipe = MainRecipeFragment().titleRecipe
     private val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().reference
-    private val dbRef: DatabaseReference = databaseReference.child("main_recipe")
+    private val dbRef: DatabaseReference = databaseReference
+        .child("main_recipe")
+        .child(titleRecipe)
 
-    private val mainRecipeList: ArrayList<MainRecipe> = arrayListOf()
-
-    private val _mainRecipe = MutableLiveData<ArrayList<MainRecipe>>().apply {
+    private val _mainRecipe = MutableLiveData<MainRecipe>().apply {
         dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (mainRecipeSnapshot in dataSnapshot.children) {
                     val mainRecipe =  mainRecipeSnapshot.getValue(MainRecipe::class.java)
-                    mainRecipeList.add(mainRecipe!!)
-                    value = mainRecipeList
+                    value = mainRecipe
                 }
             }
             override fun onCancelled(databaseError: DatabaseError) {
                 // Getting Post failed, log a message
                 Log.w(ContentValues.TAG, "loadMainRecipe:onCancelled", databaseError.toException())
             }
-        }
-        )
+        })
     }
-    val mainRecipe: LiveData<ArrayList<MainRecipe>> = _mainRecipe
+
+    val mainRecipe: LiveData<MainRecipe> = _mainRecipe
 }
+
+//    private val mainRecipeList: ArrayList<MainRecipe> = arrayListOf()
+
+//    private val _mainRecipe = MutableLiveData<ArrayList<MainRecipe>>().apply {
+//        dbRef.addValueEventListener(object : ValueEventListener {
+//            override fun onDataChange(dataSnapshot: DataSnapshot) {
+//                for (mainRecipeSnapshot in dataSnapshot.children) {
+//                    val mainRecipe =  mainRecipeSnapshot.getValue(MainRecipe::class.java)
+//                    mainRecipeList.add(mainRecipe!!)
+//                    value = mainRecipeList
+//                }
+//            }
+//            override fun onCancelled(databaseError: DatabaseError) {
+//                // Getting Post failed, log a message
+//                Log.w(ContentValues.TAG, "loadMainRecipe:onCancelled", databaseError.toException())
+//            }
+//        }
+//        )
+//    }

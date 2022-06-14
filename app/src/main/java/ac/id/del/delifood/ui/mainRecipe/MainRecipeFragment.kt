@@ -16,6 +16,8 @@ class MainRecipeFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    var titleRecipe: String = ""
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,7 +29,7 @@ class MainRecipeFragment : Fragment() {
         _binding = FragmentMainRecipeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val titleRecipe = arguments?.getString("title_recipe")!!
+        titleRecipe = arguments?.getString("title_recipe")!!
 
         val textTitle = binding.titleMainRecipe
         textTitle.text = titleRecipe
@@ -35,24 +37,22 @@ class MainRecipeFragment : Fragment() {
         val textOrigin = binding.originMainRecipe
 
         mainRecipeViewModel.mainRecipe.observe(viewLifecycleOwner) {
-            textOrigin.text = it[0].origin
+            textOrigin.text = it.origin
 
-            val mainRecipeIngredientsAdapter = MainRecipeIngredientsAdapter(it[0].ingredients!!)
+            val mainRecipeIngredientsAdapter = MainRecipeIngredientsAdapter(it.ingredients!!)
             val textIngredients = binding.ingredientsListMainRecipe
             textIngredients.apply {
                 this.adapter = mainRecipeIngredientsAdapter
                 this.layoutManager =  LinearLayoutManager(context)
             }
 
-            val mainRecipeProcedureAdapter = MainRecipeProcedureAdapter(it[0].procedure!!)
+            val mainRecipeProcedureAdapter = MainRecipeProcedureAdapter(it.procedure!!)
             val textProcedure = binding.procedureListMainRecipe
             textProcedure.apply {
                 this.adapter = mainRecipeProcedureAdapter
                 this.layoutManager =  LinearLayoutManager(context)
             }
-
         }
-
 
         return root
     }
