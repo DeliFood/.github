@@ -37,4 +37,4 @@
             android:gravity="center_vertical" />
 
     </LinearLayout>
-    </androidx.cardview.widget.CardView>
+</androidx.cardview.widget.CardView>
