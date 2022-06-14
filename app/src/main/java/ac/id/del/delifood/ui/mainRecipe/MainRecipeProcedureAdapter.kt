@@ -17,7 +17,6 @@ class MainRecipeProcedureAdapter (
     )
 
     override fun onBindViewHolder(holder: MainRecipeProcedureViewHolder, position: Int) {
-        holder.itemMainRecipeProcedureBinding.pointProcedure .text = "-"
         holder.itemMainRecipeProcedureBinding.textItemMainRecipeProcedure.text = mainRecipeProcedure[position]
     }
 

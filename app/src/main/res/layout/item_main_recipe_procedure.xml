@@ -4,7 +4,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/item_procedure">
 
         <LinearLayout
@@ -14,12 +14,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" >
-
-            <ac.id.del.delifood.utils.InterTextViewRegular
-                android:id="@+id/point_procedure"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"/>
 
             <ac.id.del.delifood.utils.InterTextViewRegular
                 android:id="@+id/text_item_main_recipe_procedure"
