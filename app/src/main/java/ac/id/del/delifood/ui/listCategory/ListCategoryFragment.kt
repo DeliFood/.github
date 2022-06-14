@@ -14,7 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class ListCategoryFragment : Fragment() {
+class ListCategoryFragment(mainCategory: MainCategory) : Fragment() {
     private var _binding: FragmentListCategoryBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.

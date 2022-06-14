@@ -8,12 +8,12 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 
-class HomeAdapter (private  val mainCategoryList: List<MainCategory>)
-    : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>(){
+class HomeAdapter (
+    private  val mainCategoryList: List<MainCategory>
+    ) : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>(){
 
     var position: Int = 0
-    lateinit var holder: HomeViewHolder
-    lateinit var currentItem: MainCategory
+    var listener: HomeRecyclerViewClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =  HomeViewHolder (
         DataBindingUtil.inflate (LayoutInflater.from(parent.context),
@@ -22,9 +22,10 @@ class HomeAdapter (private  val mainCategoryList: List<MainCategory>)
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         this.position = position
-        this.holder = holder
-        currentItem = mainCategoryList[position]
-        holder.itemHomeBinding.textCategoryHome.text = currentItem.origin
+        holder.itemHomeBinding.textCategoryHome.text = mainCategoryList[position].origin
+        holder.itemHomeBinding.cardViewItemHome.setOnClickListener {
+            listener?.onItemClicked(it, mainCategoryList[position])
+        }
     }
 
     override fun getItemCount(): Int {

@@ -1,37 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/card_view_item_home"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_margin="20dp"
-    app:cardCornerRadius="10dp" >
-
-    <LinearLayout
+    xmlns:tools="http://schemas.android.com/tools" >
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_item_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:ignore="UseCompoundDrawables">
+        android:layout_margin="20dp"
+        app:cardCornerRadius="10dp" >
 
-        <ImageView
-            android:id="@+id/img_home"
-            android:layout_width="100dp"
-            android:layout_height="70dp"
-            android:contentDescription="@string/img_default_recipe_desc"
-            android:background="@drawable/batak"
-            app:layout_constraintBottom_toTopOf="@+id/text_img_home" />
-
-        <TextView
-            android:id="@+id/text_category_home"
-            android:layout_width="100dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/blank"
-            android:textAlignment="center"
-            android:background="@color/color_background_card"
-            app:layout_constraintTop_toBottomOf="@+id/img_home" />
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
 
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/img_home"
+                android:layout_width="100dp"
+                android:layout_height="70dp"
+                android:contentDescription="@string/img_default_recipe_desc"
+                android:background="@drawable/batak"
+                app:layout_constraintBottom_toTopOf="@+id/text_img_home" />
 
-</androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/text_category_home"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/blank"
+                android:textAlignment="center"
+                android:background="@color/color_background_card"
+                app:layout_constraintTop_toBottomOf="@+id/img_home" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
