@@ -10,11 +10,10 @@ import com.google.firebase.database.*
 
 class MainRecipeViewModel : ViewModel() {
 
-    private val titleRecipe = MainRecipeFragment().titleRecipe
     private val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().reference
     private val dbRef: DatabaseReference = databaseReference
         .child("main_recipe")
-        .child(titleRecipe)
+        .child(MainRecipeFragment().titleRecipe)
 
     private val _mainRecipe = MutableLiveData<MainRecipe>().apply {
         dbRef.addValueEventListener(object : ValueEventListener {

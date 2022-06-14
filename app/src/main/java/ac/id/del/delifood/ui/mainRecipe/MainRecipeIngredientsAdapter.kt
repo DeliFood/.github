@@ -17,6 +17,7 @@ class MainRecipeIngredientsAdapter (
     )
 
     override fun onBindViewHolder(holder: MainRecipeIngredientsViewHolder, position: Int) {
+        holder.itemMainRecipeIngredientsBinding.pointIngredients.text = "-"
         holder.itemMainRecipeIngredientsBinding.textItemMainRecipeIngredients.text = mainRecipeIngredients[position]
     }
 

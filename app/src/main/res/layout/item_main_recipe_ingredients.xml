@@ -16,6 +16,12 @@
             app:layout_constraintTop_toTopOf="parent" >
 
             <ac.id.del.delifood.utils.InterTextViewRegular
+                android:id="@+id/point_ingredients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"/>
+
+            <ac.id.del.delifood.utils.InterTextViewRegular
                 android:id="@+id/text_item_main_recipe_ingredients"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
