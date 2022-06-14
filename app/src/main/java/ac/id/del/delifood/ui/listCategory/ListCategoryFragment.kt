@@ -34,6 +34,7 @@ class ListCategoryFragment
         Log.d("ListCategory", originMainCategory)
 
         binding.titleListCategory.text = originMainCategory
+
         val listCategoryAdapter = ListCategoryAdapter(recipeMainCategoryList)
         listCategoryAdapter.listener = this
 
