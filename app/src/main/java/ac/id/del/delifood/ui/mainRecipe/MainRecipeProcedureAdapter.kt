@@ -17,6 +17,7 @@ class MainRecipeProcedureAdapter (
     )
 
     override fun onBindViewHolder(holder: MainRecipeProcedureViewHolder, position: Int) {
+        holder.itemMainRecipeProcedureBinding.pointProcedure.text = (position+1).toString()
         holder.itemMainRecipeProcedureBinding.textItemMainRecipeProcedure.text = mainRecipeProcedure[position]
     }
 
