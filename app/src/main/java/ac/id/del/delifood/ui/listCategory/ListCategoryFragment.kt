@@ -49,9 +49,8 @@ class ListCategoryFragment
         _binding = null
     }
 
-    override fun onItemClicked(view: View, recipeMainCategory: String, position: Int) {
-        val bundle = bundleOf("title_recipe" to recipeMainCategory,
-                                "position" to position)
+    override fun onItemClicked(view: View, recipeMainCategory: String) {
+        val bundle = bundleOf("title_recipe" to recipeMainCategory)
         view.findNavController().navigate(R.id.action_ListCategoryFragment_to_MainRecipeFragment, bundle)
         Log.d("ListCategoryFragment","Success")
     }

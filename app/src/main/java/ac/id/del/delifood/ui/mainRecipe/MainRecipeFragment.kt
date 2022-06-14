@@ -28,7 +28,6 @@ class MainRecipeFragment : Fragment() {
         val root: View = binding.root
 
         val titleRecipe = arguments?.getString("title_recipe")!!
-        val position = arguments?.getInt("position")!!
 
         val textTitle = binding.titleMainRecipe
         textTitle.text = titleRecipe
@@ -36,16 +35,16 @@ class MainRecipeFragment : Fragment() {
         val textOrigin = binding.originMainRecipe
 
         mainRecipeViewModel.mainRecipe.observe(viewLifecycleOwner) {
-            textOrigin.text = it[position].origin
+            textOrigin.text = it[0].origin
 
-            val mainRecipeIngredientsAdapter = MainRecipeIngredientsAdapter(it[position].ingredients!!)
+            val mainRecipeIngredientsAdapter = MainRecipeIngredientsAdapter(it[0].ingredients!!)
             val textIngredients = binding.ingredientsListMainRecipe
             textIngredients.apply {
                 this.adapter = mainRecipeIngredientsAdapter
                 this.layoutManager =  LinearLayoutManager(context)
             }
 
-            val mainRecipeProcedureAdapter = MainRecipeProcedureAdapter(it[position].procedure!!)
+            val mainRecipeProcedureAdapter = MainRecipeProcedureAdapter(it[0].procedure!!)
             val textProcedure = binding.procedureListMainRecipe
             textProcedure.apply {
                 this.adapter = mainRecipeProcedureAdapter

@@ -22,7 +22,7 @@ class ListCategoryAdapter (
     override fun onBindViewHolder(holder: ListCategoryViewHolder, position: Int) {
         holder.itemListCategoryBinding.textListCategory.text = recipeMainCategory[position]
         holder.itemListCategoryBinding.cardViewItemListCategory.setOnClickListener {
-            listener?.onItemClicked(it, recipeMainCategory[position], position)
+            listener?.onItemClicked(it, recipeMainCategory[position])
         }
     }
 
