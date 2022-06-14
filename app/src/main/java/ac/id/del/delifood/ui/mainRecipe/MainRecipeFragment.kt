@@ -5,11 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 
 class MainRecipeFragment : Fragment() {
 
@@ -17,6 +15,9 @@ class MainRecipeFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
+    private lateinit var mainRecipeIngredients: ArrayList<String>
+    private lateinit var mainRecipeProcedure: ArrayList<String>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,30 +30,32 @@ class MainRecipeFragment : Fragment() {
         _binding = FragmentMainRecipeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textTitle: TextView = binding.titleMainRecipe
-        mainRecipeViewModel.textTitle.observe(viewLifecycleOwner) {
-            textTitle.text = it
-        }
-        val textOrigin: TextView = binding.originMainRecipe
-        mainRecipeViewModel.textOrigin.observe(viewLifecycleOwner) {
-            textOrigin.text = it
-        }
-//        val textIngredients: TextView = binding.ingredientsMainRecipe
-//        mainRecipeViewModel.textIngredients.observe(viewLifecycleOwner) {
-//            textIngredients.text = it
-//        }
-//        val textProcedure: TextView = binding.procedureMainRecipe
-//        mainRecipeViewModel.textProcedure.observe(viewLifecycleOwner) {
-//            textProcedure.text = it
-//        }
+        val titleRecipe = arguments?.getString("title_recipe")!!
+        val position = arguments?.getInt("position")!!
 
-        val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(context)
-        val categoryView: RecyclerView = binding.ingredientsListMainRecipe
-        categoryView.layoutManager = layoutManager
-        categoryView.setHasFixedSize(true)
+        val textTitle = binding.titleMainRecipe
+        textTitle.text = titleRecipe
 
-        mainRecipeViewModel.listText.observe(viewLifecycleOwner) {
-            categoryView.adapter = it
+        val textOrigin = binding.originMainRecipe
+
+        mainRecipeViewModel.mainRecipe.observe(viewLifecycleOwner) {
+            textOrigin.text = it[position].origin
+            mainRecipeIngredients = it[position].ingredients!!
+            mainRecipeProcedure = it[position].procedure!!
+        }
+
+        val mainRecipeIngredientsAdapter = MainRecipeIngredientsAdapter(mainRecipeIngredients)
+        val textIngredients = binding.ingredientsListMainRecipe
+        textIngredients.apply {
+            this.adapter = mainRecipeIngredientsAdapter
+            this.layoutManager =  LinearLayoutManager(context)
+        }
+
+        val mainRecipeProcedureAdapter = MainRecipeProcedureAdapter(mainRecipeProcedure)
+        val textProcedure = binding.procedureListMainRecipe
+        textProcedure.apply {
+            this.adapter = mainRecipeProcedureAdapter
+            this.layoutManager =  LinearLayoutManager(context)
         }
 
         return root
@@ -62,5 +65,4 @@ class MainRecipeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

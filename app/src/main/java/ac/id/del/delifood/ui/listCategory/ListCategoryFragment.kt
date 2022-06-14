@@ -1,19 +1,19 @@
 package ac.id.del.delifood.ui.listCategory
 
+import ac.id.del.delifood.R
 import ac.id.del.delifood.databinding.FragmentListCategoryBinding
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 
 class ListCategoryFragment
     : Fragment(), ListCategoryRecyclerViewClickListener {
-
-    private var recipeMainCategoryList: ArrayList<String> = arrayListOf()
-    private lateinit var originMainCategory: String
 
     private var _binding: FragmentListCategoryBinding? = null
     // This property is only valid between onCreateView and
@@ -27,11 +27,8 @@ class ListCategoryFragment
     ): View {
         _binding = FragmentListCategoryBinding.inflate(inflater, container, false)
 
-        recipeMainCategoryList = arguments?.getStringArrayList("title_recipe")!!
-        originMainCategory = arguments?.getString("origin")!!
-
-        Log.d("ListCategory", recipeMainCategoryList[1])
-        Log.d("ListCategory", originMainCategory)
+        val recipeMainCategoryList = arguments?.getStringArrayList("title_recipe")!!
+        val originMainCategory = arguments?.getString("origin")!!
 
         binding.titleListCategory.text = originMainCategory
 
@@ -52,9 +49,10 @@ class ListCategoryFragment
         _binding = null
     }
 
-    override fun onItemClicked(view: View, recipeMainCategory: String) {
-//        MainRecipe()
-//        view.findNavController().navigate(R.id.action_ListCategoryFragment_to_MainRecipeFragment)
+    override fun onItemClicked(view: View, recipeMainCategory: String, position: Int) {
+        val bundle = bundleOf("title_recipe" to recipeMainCategory,
+                                "position" to position)
+        view.findNavController().navigate(R.id.action_ListCategoryFragment_to_MainRecipeFragment, bundle)
         Log.d("ListCategoryFragment","Success")
     }
 }
